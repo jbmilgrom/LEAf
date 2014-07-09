@@ -37,7 +37,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
+gem 'rails_12factor'
 gem 'pry-rails'
 gem 'griddler'
 gem 'awesome_print'
