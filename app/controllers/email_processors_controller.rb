@@ -4,5 +4,12 @@ class EmailProcessorsController < ApplicationController
 	end
 
 	def create
+		puts "=================="
+		puts "=================="
+		puts params
+		puts "=================="
+		puts "=================="
+		
+		# test_email = TestEmail.create({data: params})
 	end
 end
