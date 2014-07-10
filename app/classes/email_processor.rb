@@ -6,7 +6,7 @@ class EmailProcessor
   end
 
   def process
-  	Post.create!({ body: @email.body, sender: @email.from })
+  	Post.create!({ body: @email.body, from: @email.from })
   end
   # def self.process(email)
   #   Post.create!({ body: email.body, sender: email.from })
