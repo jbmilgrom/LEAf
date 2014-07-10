@@ -8,7 +8,8 @@ Bundler.require(*Rails.groups)
 
 module SocialPocket
   class Application < Rails::Application
-    config.autoload_paths << File.join(Rails.root, "lib")
+    config.autoload_paths += %W(#{config.root}/app/classes)
+    # config.autoload_paths << File.join(Rails.root, "lib")
     # config.action_controller.permit_all_parameters = true
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
