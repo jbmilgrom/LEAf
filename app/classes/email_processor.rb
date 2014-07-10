@@ -6,6 +6,7 @@ class EmailProcessor
   end
 
   def process
+    puts @email
   	Post.create!({ body: @email.body, from: @email.from })
   end
   # def self.process(email)
