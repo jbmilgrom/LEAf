@@ -4,7 +4,7 @@
     <% @posts.each do |post| %>
       <blockquote>
         <p><%= post.body %></p>
-        <small><%= post.email %></small>
+        <small><%= post.from %></small>
       </blockquote>
     <% end %>
 <% else %>
