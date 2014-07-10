@@ -2,23 +2,24 @@ class EmailProcessor
   
   # attr_accessor :body, :email, :name
   def initialize(email)
-    @@email_logger ||= Logger.new("#{Rails.root}/log/email_bs.log")
-    @@email_logger.info("Initializing new EmailProcessor")
-    @@email_logger.info(email.inspect)
+    @my_sane_log_messages = []
+    @my_sane_log_messages.push("Initializing new EmailProcessor")
+    @my_sane_log_messages.push(email.inspect)
     
     @email = email
-    @@email_logger.info("Done")
+    @my_sane_log_messages.push("Done")
   end
 
   def process
     
-    @@email_logger.info("Processing email")
-    @@email_logger.info(@email.inspect)
+    @my_sane_log_messages.push("Processing email")
+    @my_sane_log_messages.push(@email.inspect)
   	Post.create!({ 
       body: @email.body, 
       from: @email.from 
       })
-    @@email_logger.info("Done.")
+    @my_sane_log_messages.push("Done.")
+    puts @my_sane_log_messages
   end
   # def self.process(email)
   #   Post.create!({ body: email.body, from: email.from })
