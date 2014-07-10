@@ -7,7 +7,10 @@ class EmailProcessor
 
   def process
     puts @email
-  	Post.create!({ body: @email.body, from: @email.from })
+  	Post.create!({ 
+      body: @email.body, 
+      from: @email.from 
+      })
   end
   # def self.process(email)
   #   Post.create!({ body: email.body, sender: email.from })
