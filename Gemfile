@@ -41,4 +41,5 @@ gem 'rails_12factor'
 gem 'pry-rails'
 gem 'griddler'
 gem 'awesome_print'
+gem 'httparty'
 
