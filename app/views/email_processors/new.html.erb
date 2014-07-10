@@ -1,0 +1,5 @@
+<%= form_for @processed_email do |f| %>
+  <%= f.text_field :body, { placeholder: "body" } %>
+  <%= f.text_field :email, { placeholder: "email" } %>
+  <%= f.submit %>
+<% end %>
