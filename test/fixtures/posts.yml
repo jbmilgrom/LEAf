@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  to: MyString
+  from: MyString
+  subject: MyString
+  body: MyText
+  raw_body: MyText
+
+two:
+  to: MyString
+  from: MyString
+  subject: MyString
+  body: MyText
+  raw_body: MyText

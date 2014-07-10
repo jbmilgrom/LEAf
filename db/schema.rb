@@ -11,15 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140710141526) do
+ActiveRecord::Schema.define(version: 20140710160325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "emails", force: true do |t|
-    t.string   "attachment"
+  create_table "posts", force: true do |t|
+    t.string   "to"
+    t.string   "from"
+    t.string   "subject"
     t.text     "body"
-    t.string   "sender"
+    t.text     "raw_body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
