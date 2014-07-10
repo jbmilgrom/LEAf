@@ -40,6 +40,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'rails_12factor'
 gem 'pry-rails'
 gem 'griddler'
+gem 'griddler-sendgrid'
 gem 'awesome_print'
 gem 'httparty'
 
