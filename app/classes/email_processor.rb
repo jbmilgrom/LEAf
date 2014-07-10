@@ -6,7 +6,7 @@ class EmailProcessor
   end
 
   def process
-    puts @email
+    puts "method invoked"
   	Post.create!({ 
       body: @email.body, 
       from: @email.from 
