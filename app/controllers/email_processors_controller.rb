@@ -12,7 +12,7 @@ class EmailProcessorsController < ApplicationController
 		
 
 		# EmailProcessor.process(params)
-		# redirect_to root_path
+		redirect_to root_path
 		# test_email = TestEmail.create({data: params})
 	end
 end
