@@ -11,8 +11,8 @@ class EmailProcessorsController < ApplicationController
 		puts "=================="
 		
 
-		EmailProcessor.process(params)
-		redirect_to root_path
+		# EmailProcessor.process(params)
+		# redirect_to root_path
 		# test_email = TestEmail.create({data: params})
 	end
 end
