@@ -7,7 +7,11 @@ class EmailProcessor
   	Post.create!({ 
       subject: @email.subject,
       body: @email.body, 
+
+      #token information is breaking
+      #############################
       # token: @email.from[:token],
+
       host: @email.from[:host],
       email: @email.from[:email],
       full: @email.from[:full],
@@ -20,6 +24,8 @@ class EmailProcessor
   end
 end
 
+#@EMAIL SPEC - COPIED FROM THOUGHTBOT GITHUB
+#############################################
 
 #to An array of hashes containing recipient address information. See Email Addresses for more information.
 #from A hash containing the sender address information.
@@ -36,4 +42,6 @@ end
 #raw_body The raw body information provided by the email service.
 #attachments  An array of File objects containing any attachments.
 #headers  A hash of headers parsed by Mail::Header.
+
+############################################
 #raw_headers
