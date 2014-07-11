@@ -7,7 +7,7 @@ class EmailProcessor
   	Post.create!({ 
       subject: @email.subject,
       body: @email.body, 
-      token: @email.from[:token],
+      # token: @email.from[:token],
       host: @email.from[:host],
       email: @email.from[:email],
       full: @email.from[:full],
