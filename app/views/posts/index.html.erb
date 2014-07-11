@@ -3,17 +3,16 @@
 <% if @posts.count > 0 %>
     <% @posts.each do |post| %>
       <blockquote>
-        <p><%= post.subject %></p>
-        <small><%= post.body%></small>
-      	<small><%= post.token%></small>
-      	<small><%= post.host%></small>
-      	<small><%= post.email%></small>
-      	<small><%= post.full%></small>
-      	<small><%= post.name%></small>
-      	<small><%= post.raw_text%></small>
-      	<small><%= post.raw_html%></small>
-      	<small><%= post.raw_body%></small>
-      	<small><%= post.attachments%></small>
+        <p>subject: <%= post.subject %></p>
+        <p>body: <%= post.body%></p>
+      	<p>host: <%= post.host%></p>
+      	<p>email: <%= post.email%></p>
+      	<p>full: <%= post.full%></p>
+      	<p>name: <%= post.name%></p>
+      	<p>raw_text: <%= post.raw_text%></p>
+      	<p>raw_html: <%= post.raw_html%></small>
+      	<p>raw_body: <%= post.raw_body%></p>
+      	<p>attachment: <%= post.attachments%></p>
       </blockquote>
     <% end %>
 <% else %>
