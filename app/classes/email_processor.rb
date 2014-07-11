@@ -5,7 +5,7 @@ class EmailProcessor
 
   def process
   	Post.create!({ 
-      subject: @email.subject
+      subject: @email.subject,
       body: @email.body, 
       token: @email.from[:token],
       host: @email.from[:host],
