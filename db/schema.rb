@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140711202138) do
+ActiveRecord::Schema.define(version: 20140711210411) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,20 @@ ActiveRecord::Schema.define(version: 20140711202138) do
     t.text     "raw_text"
     t.text     "raw_html"
     t.text     "attachments"
+  end
+
+  create_table "saved_articles", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "article_id"
+    t.boolean  "is_archived?"
+    t.boolean  "is_favorited?"
+    t.string   "tag_one"
+    t.string   "tag_two"
+    t.string   "tag_three"
+    t.string   "tag_four"
+    t.string   "tag_five"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "test_emails", force: true do |t|

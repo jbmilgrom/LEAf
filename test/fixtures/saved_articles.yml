@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  article_id: 1
+  is_archived?: false
+  is_favorited?: false
+  tag_one: MyString
+  tag_two: MyString
+  tag_three: MyString
+  tag_four: MyString
+  tag_five: MyString
+
+two:
+  user_id: 1
+  article_id: 1
+  is_archived?: false
+  is_favorited?: false
+  tag_one: MyString
+  tag_two: MyString
+  tag_three: MyString
+  tag_four: MyString
+  tag_five: MyString
