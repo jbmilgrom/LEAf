@@ -3,8 +3,9 @@
 <% if @posts.count > 0 %>
     <% @posts.each do |post| %>
       <blockquote>
-        <p><%= post.body %></p>
-        <small><%= post.from %></small>
+        <p><%= post.subject %></p>
+        <small><%= post.body%></small>
+      	<small><%= post.body%></small>
       </blockquote>
     <% end %>
 <% else %>
