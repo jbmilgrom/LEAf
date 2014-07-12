@@ -3,43 +3,26 @@ class EmailProcessor
 
   def initialize(email)
     @email = email
-    @subject = @email.subject,
-    @body = @email.body, 
-
-    #token information is breaking
-    #############################
-    # token: @email.from[:token],
-
-    @host = @email.from[:host],
-    @email = @email.from[:email],
-    @full = @email.from[:full],
-    @name = @email.from[:name],
-    @raw_text = @email.raw_text,
-    @raw_html = @email.raw_html,
-    @raw_body = @email.raw_body,
-    @attachments = @email.attachments[0]
   end
 
   def process
   	Post.create!({ 
-      subject: @subject,
-      body: @body, 
-      host: @host,
-      email: @email,
-      full: @full,
-      name: @name,
-      raw_text: @raw_text,
-      raw_html: @raw_html,
-      raw_body: @raw_body,
-      attachments: @attachments[0]
+      subject: @email.subject,
+      body: @email.body, 
+
+      #token information is breaking
+      #############################
+      # token: @email.from[:token],
+
+      host: @email.from[:host],
+      email: @email.from[:email],
+      full: @email.from[:full],
+      name: @email.from[:name],
+      raw_text: @email.raw_text,
+      raw_html: @email.raw_html,
+      raw_body: @email.raw_body,
+      attachments: @email.attachments[0]
     })
-
-    # processed_article = ProcessArticle.new(url)
-    # doc(.header
-  end
-
-  def parse_url
-    
   end
 
 end
