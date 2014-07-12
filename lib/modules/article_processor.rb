@@ -1,6 +1,10 @@
 module ArticleProcessor
 	require 'open-uri'
 
+	# def ng_work?
+	# 	Nokogiri.HTML(open(url)).defined?
+	# end
+		
 	def get_doc(url)
 		@doc = Nokogiri.HTML(open(url))
 	end
