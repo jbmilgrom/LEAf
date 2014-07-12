@@ -1,16 +1,19 @@
-module ArticleProcessor
+class ProcessedArticle
 	require 'open-uri'
-
+	attr_accessor :url
 	# def ng_work?
 	# 	Nokogiri.HTML(open(url)).defined?
 	# end
-		
-	def get_doc(url)
-		@doc = Nokogiri.HTML(open(url))
+	def initialize(url)
+		@url = url
+	end	
+
+	def doc
+		@doc = Nokogiri.HTML(open(@url))
 	end
 
 	def header
-		@article = @doc.xpath("//article//header") if @doc.xpath("//article//header")
+		@article = @doc.xpath("//article//header") if @doc.xpath("//article//header").to_a != []
 	end
 
 	def print_to_s(ng_object)
