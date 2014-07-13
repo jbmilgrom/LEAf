@@ -6,7 +6,7 @@ class EmailProcessor
   end
 
   def process
-  	post = Post.new({ 
+  	post = Post.create!({ 
       subject: @email.subject,
       body: @email.body, 
 
@@ -24,8 +24,10 @@ class EmailProcessor
       attachments: @email.attachments[0]
     })
 
-    post.parse_url.save
-    
+    # save post after parsing @email for the correct article url
+    post.parse_url
+    post.save
+
   end
 
 end
