@@ -6,7 +6,7 @@ class ArticleProcessor
 	# end
 	def initialize(url)
 		# url = url
-		@doc = Nokogiri.HTML(open(url))
+		@doc = Nokogiri.HTML(open(url, 'User-Agent' => 'ruby'))
 	end	
 
 	# def doc
