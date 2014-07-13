@@ -29,6 +29,7 @@ class EmailProcessor
     post.save
 
     # haven't yet figured out how to get body
+    # still need to make sure article_processor works correctly
     if post.emailer_a_user
       article_processer = ArticleProcessor.new(post.a_url)
       article = Article.new({
