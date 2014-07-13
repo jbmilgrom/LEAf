@@ -12,6 +12,6 @@ class Post < ActiveRecord::Base
   end
 
   def emailer_a_user
-  	User.where(email: self.email)
+  	User.where(email: self.email)[0] 
   end
 end
