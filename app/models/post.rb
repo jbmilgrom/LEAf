@@ -10,4 +10,8 @@ class Post < ActiveRecord::Base
 		# since the regex mapping itself returns an array, select the first value thereof as well
 		self.a_url = url_array[0][0]  
   end
+
+  def emailer_a_user
+  	User.where(email: self.email)
+  end
 end

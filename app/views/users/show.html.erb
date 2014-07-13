@@ -1,0 +1,19 @@
+<h1>Articles</h1>
+ 
+<% if @saved_articles.count > 0 %>
+    <% @saved_articles.each do |article| %>
+      <ul>
+      	<h1>article: <%= article.id %></h1>
+        <li>
+        	<h2>header: </h2>
+        	<p><%= article.header %></p>
+        </li>
+        <li>
+          <h2> URL: </h2>
+          <p><%= article.a_url%></p>
+        </li>
+      </ul>
+    <% end %>
+<% else %>
+  <p><em>Oops, doesn't look like there are any Articles yet.</em></p>
+<% end %>

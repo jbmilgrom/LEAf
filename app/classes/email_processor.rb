@@ -28,6 +28,24 @@ class EmailProcessor
     post.parse_url
     post.save
 
+    # haven't yet figured out how to get body
+    if post.emailer_a_user
+      article_processer = ArticleProcessor.new(post.a_url)
+      article = Article.new({
+        a_url: post.a_url,
+        header: article_processer.part_of_doc("header"),
+        post_id: post.id
+        })
+      if article.save!
+        SavedArticle.create!({
+          user_id: post.emailer_a_user.id,
+          article_id: article.id,
+          is_archived?: false,
+          is_favorited?: false
+          })
+      end
+    end
+
   end
 
 end
