@@ -10,9 +10,7 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		binding.pry
 		@user = User.new(user_attributes)
-    #@user.save will return certain message/objects/notsure such that it responds to .errors es explicated in new.html.erb in Users views
 		if @user.save
 			session[:user_id] = @user.id
   		redirect_to root_url, :notice => "Signed up!"
