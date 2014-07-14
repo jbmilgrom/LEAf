@@ -5,8 +5,14 @@ Rails.application.routes.draw do
 # 'griddler/emails#create' triggers the Griddler gem from processing
   post '/email_processor' => 'griddler/emails#create'
 
-  resources :users do 
+  resources :users, except: :new do 
   	resources :saved_articles, shallow: true
   end
+
+  get "/sign_up" => "users#new", :as => "sign_up"
+
+  get "/log_out" => "sessions#destroy", :as => "log_out"
+  get "/log_in" => "sessions#new", :as => "log_in"
+  resources :sessions, except: [:new, :destroy]
 
 end

@@ -44,5 +44,6 @@ gem 'griddler-sendgrid'
 gem 'awesome_print'
 gem 'httparty'
 gem 'nokogiri'
+gem 'bcrypt' 
 
 
