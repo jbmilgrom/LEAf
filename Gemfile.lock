@@ -30,6 +30,8 @@ GEM
     arel (5.0.1.20140414130214)
     awesome_print (1.2.0)
     bcrypt (3.1.7)
+    bootstrap-sass (3.2.0.0)
+      sass (~> 3.2)
     builder (3.2.2)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -39,6 +41,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
+    commonjs (0.2.7)
     erubis (2.7.0)
     execjs (2.2.1)
     griddler (1.0.0)
@@ -59,6 +62,11 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    less (2.5.1)
+      commonjs (~> 0.2.7)
+    less-rails (2.5.0)
+      actionpack (>= 3.1)
+      less (~> 2.5.0)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -143,12 +151,14 @@ PLATFORMS
 DEPENDENCIES
   awesome_print
   bcrypt
+  bootstrap-sass
   coffee-rails (~> 4.0.0)
   griddler
   griddler-sendgrid
   httparty
   jbuilder (~> 2.0)
   jquery-rails
+  less-rails
   nokogiri
   pg
   pry-rails
