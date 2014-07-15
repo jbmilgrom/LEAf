@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   # root "posts#index"
-  root "users#show"
+  root "saved_articles#index"
 
 	# post '/email_processor' is the SendGrid spec route
 	# 'griddler/emails#create' triggers the Griddler gem from processing
   post '/email_processor' => 'griddler/emails#create'
 
-  resources :users, except: :new do 
+  resource :user, except: :new do 
   	resources :saved_articles, shallow: true
   end
 
