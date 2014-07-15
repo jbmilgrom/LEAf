@@ -1,6 +1,8 @@
+console.log("sanity check");
+
 var App = App || { Models: {}, Collections: {}, Views: {} };
 
-App.Initialize = function(){
+App.Initialize = function(myStuff){
 	collection = new App.Collections.SavedArticleCollection();
 	
 	collectionView = new App.Views.SavedArticleCollectionView({
@@ -12,13 +14,8 @@ App.Initialize = function(){
 	// creates models for each saved_article received in json from controller, 
 	// and adds to this.collection
 	// collection.fetch();
-	collection.add({id: "1", url: "googl/com"});
+	// model = {url: "googl.com"};
+	// model1 = {url: "smogoogl.com"};
+	// collection.add([model, model1]);
+	collection.add(myStuff);
 }
-
-$(function(){
-	console.log("hello world");
-
-	App.Initialize();
-
-
-});

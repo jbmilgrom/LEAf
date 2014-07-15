@@ -45,5 +45,6 @@ gem 'awesome_print'
 gem 'httparty'
 gem 'nokogiri'
 gem 'bcrypt' 
+gem 'pismo'
 
 

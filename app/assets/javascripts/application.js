@@ -15,4 +15,8 @@
 //= require turbolinks
 //= require underscore
 //= require backbone
-//= require_tree .
+//= require app
+//= require models/savedArticle
+//= require views/savedArticleView
+//= require collections/savedArticleCollection
+//= require views/savedArticleCollectionView

@@ -5,8 +5,8 @@
 </div>
 
 <script type="text/template" id='saved_articles_template'>
-  <h2>ID: <%%= id %> </h2>
-  <h3>URL: <%%= url %> </h3>  
+  
+  <h3>URL: <%%= a_url %> </h3>  
   <button data-action='destroy'>
     Delete
   </button>
@@ -16,4 +16,12 @@
   <button data-action="archive">
     Archive
   </button>
+</script>
+
+<script>
+$(function(){
+  console.log("hello world");
+  var myStuff = <%== @saved_articles.to_json %>;  
+  App.Initialize(myStuff);
+});
 </script>
