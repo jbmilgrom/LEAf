@@ -30,22 +30,24 @@ class EmailProcessor
 
     # haven't yet figured out how to get body
     # still need to make sure article_processor works correctly
-    # if post.emailer_a_user
-    #   article_processer = ArticleProcessor.new(post.a_url)
-    #   article = Article.new({
-    #     a_url: post.a_url,
-    #     header: article_processer.part_of_doc("header"),
-    #     post_id: post.id
-    #     })
-    #   if article.save!
-    #     SavedArticle.create!({
-    #       user_id: post.emailer_a_user.id,
-    #       article_id: article.id,
-    #       is_archived?: false,
-    #       is_favorited?: false
-    #       })
-    #   end
-    # end
+    if post.emailer_a_user
+      article_processer = ArticleProcessor.new(post.a_url)
+      article = Article.new({
+        a_url: post.a_url,
+        header: article_processer.title,
+        subheader: article_processer.sentences(2),
+        body: article_processer.body,
+        post_id: post.id
+        })
+      if article.save!
+        SavedArticle.create!({
+          user_id: post.emailer_a_user.id,
+          article_id: article.id,
+          is_archived?: false,
+          is_favorited?: false
+          })
+      end
+    end
 
   end
 
