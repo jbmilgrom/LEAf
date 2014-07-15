@@ -1,6 +1,7 @@
 User.delete_all
 Follow.delete_all
 SavedArticle.delete_all
+Article.delete_all
 
 user_emails = ["jbmilgrom@gmail.com", "nelson.schubart@gmail.com", "dmdehrey@gmail.com", "idangurel@gmail.com", "hannaemma4@gmail.com", "hannah.milgrom@gmail.com", "srmilgrom@gmail.com"]
 
@@ -25,4 +26,18 @@ nelson = @users[1]
 		end
 	end
 end
+
+Post.all.each do |post|
+	if post.a_url
+		article = Article.create({
+				a_url: post.a_url,
+				post_id: post.id,
+			})
+		SavedArticle.create({
+			user_id: @users[0].id,
+			article_id: article.id
+			})
+	end
+end
+
 

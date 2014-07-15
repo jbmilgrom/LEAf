@@ -34,7 +34,9 @@ class EmailProcessor
     #   article_processer = ArticleProcessor.new(post.a_url)
     #   article = Article.new({
     #     a_url: post.a_url,
-    #     header: article_processer.part_of_doc("header"),
+    #     header: article_processer.title,
+    #     subheader: article_processer.sentences(2),
+    #     body: article_processer.body,
     #     post_id: post.id
     #     })
     #   if article.save!
