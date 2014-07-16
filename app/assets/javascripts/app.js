@@ -1,11 +1,11 @@
 var App = App || { Models: {}, Collections: {}, Views: {}, Initializer: {} };
 
-App.Initializer.SavedArticle = function(firstLoad){
-	collection = new App.Collections.SavedArticleCollection();
+App.Initializer.Article = function(firstLoad){
+	collection = new App.Collections.ArticleCollection();
 	
-	collectionView = new App.Views.SavedArticleCollectionView({
+	collectionView = new App.Views.ArticleCollectionView({
 		collection: collection,
-		el: $('#saved_articles_list')
+		el: $('#articles_list')
 	});
 
 	// Sends a get request to url: /user/saved_articles, 

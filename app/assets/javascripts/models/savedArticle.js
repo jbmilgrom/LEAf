@@ -1,8 +1,8 @@
 var App = App || { Models: {}, Collections: {}, Views: {}, Initializer: {} };
 
-App.Models.SavedArticle = Backbone.Model.extend({
+App.Models.Article = Backbone.Model.extend({
 	initialize: function(){
-		console.log("SavedArticle has been created");
+		console.log("Article has been created");
 	},
 
 	defaults: {

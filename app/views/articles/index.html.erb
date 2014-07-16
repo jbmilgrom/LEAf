@@ -1,10 +1,10 @@
 <h1>Articles</h1>
 
-<div id="saved_articles_container">
-	<ul id="saved_articles_list"></ul>
+<div id="articles_container">
+	<ul id="articles_list"></ul>
 </div>
 
-<script type="text/template" id='saved_articles_template'>
+<script type="text/template" id='articles_template'>
   
   <h3>URL: <%%= a_url %></h3>
   <p>title: <%%= header %></p> 
@@ -24,7 +24,7 @@
 <script>
 $(function(){
   console.log("hello world");
-  var myStuff = <%== @saved_articles.to_json %>;  
-  App.Initializer.SavedArticle(myStuff);
+  var articles = <%== @articles.to_json %>;  
+  App.Initializer.Article(articles);
 });
 </script>

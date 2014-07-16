@@ -1,11 +1,11 @@
 var App = App || { Models: {}, Collections: {}, Views: {}, Initializer: {} };
 
-console.log("STARTING to read SavedArticleView.js")
+console.log("STARTING to read ArticleView.js")
 
-App.Views.SavedArticleView = Backbone.View.extend({
+App.Views.ArticleView = Backbone.View.extend({
 	initialize: function(){
 		// this listens for a crUUUUd (i.e. update) operation
-		console.log("SavedArticleView init");
+		console.log("ArticleView init");
 		this.listenTo(this.model, "change", this.render);
 		this.listenTo(this.model, "destroy", this.remove);
 	},
@@ -20,7 +20,7 @@ App.Views.SavedArticleView = Backbone.View.extend({
 	},
 
 	template: function() { 
-		return _.template( $('#saved_articles_template').html() )
+		return _.template( $('#articles_template').html() ); 
 	},
 
 	render: function(){
@@ -38,4 +38,4 @@ App.Views.SavedArticleView = Backbone.View.extend({
 	}	
 });
 
-console.log("finished reading SavedArticleView.js");
+console.log("finished reading ArticleView.js");

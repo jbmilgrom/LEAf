@@ -13,12 +13,12 @@ class ArticlesController < ApplicationController
 
 			# @user = User.find(params[:id])
 			# @user = current_user
-    @saved_articles = current_user.articles
+    @articles = current_user.articles
 
     respond_to do |format|
 		  format.html # index.html.erb
       # format.json { binding.pry ; render json: saved_articles }
-		  format.json { render json: @saved_articles }
+		  format.json { render json: @articles }
     end
   end 
 
