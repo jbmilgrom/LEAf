@@ -1,0 +1,10 @@
+<%= @followees.to_json %>
+
+
+<script>
+$(function(){
+  console.log("hello followees");
+  var followees = <%== @followees.to_json %>;  
+  // App.Initialize(followers);
+});
+</script>

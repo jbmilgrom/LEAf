@@ -19,10 +19,15 @@ class UsersController < ApplicationController
 	end
 
 	def followers
-		@user = User.find(params[:id])
+	  user = User.find(params[:id])
+    redirect_to sign_up_path and return unless current_user == user
+    @followers = user.followers
 	end
 
 	def followees
+    user = User.find(params[:id])
+    redirect_to sign_up_path and return unless current_user == user
+    @followees = user.followees
 	end
 
 	private
