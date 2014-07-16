@@ -1,4 +1,4 @@
-<%= @followees.to_json %>
+<%= @followees_with_user.to_json %>
 
 <h1>Followees</h1>
 <div id="followees_container">
@@ -16,7 +16,9 @@
 <script>
 $(function(){
   console.log("hello followees");
-  var followees = <%== @followees.to_json %>;  
-  App.Initializer.Followee(followees);
+  var followees_with_user = <%== @followees_with_user.to_json %>;  
+  var user_id = followees_with_user.user_id
+  var followees = followees_with_user.followees
+  App.Initializer.Followee(followees, user_id);
 });
 </script>

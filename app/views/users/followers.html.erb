@@ -17,7 +17,7 @@
 <script>
 $(function(){
   console.log("hello followers");
-  var followers = <%== @followers.to_json %>;  
+  var followers = <%== @followers_with_user.to_json %>;  
   // App.Initialize(followers);
 });
 </script>

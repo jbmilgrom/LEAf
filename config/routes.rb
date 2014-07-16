@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   root "saved_articles#index"
 
-  # just for testing.  DELETE WHEN FINISHED
+  # JUST FOR TESTING.  DELETE WHEN FINISHED
   resources :posts, only: :index
 
 	# post '/email_processor' is the SendGrid spec route

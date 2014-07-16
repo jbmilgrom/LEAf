@@ -37,6 +37,19 @@ class User < ActiveRecord::Base
     end
   end
 
+  def followers_with_user
+    {
+      user_id: self.id,
+      followers: self.followers
+    }
+  end
+
+  def followees_with_user
+    {
+      user_id: self.id,
+      followees: self.followees
+    }
+  end
 
   def update_articles
     # binding.pry
