@@ -14,4 +14,8 @@ class Post < ActiveRecord::Base
   def emailer_a_user
   	User.where(email: self.email)[0] 
   end
+
+  def an_article
+    Article.where(a_url: self.a_url)[0]
+  end
 end

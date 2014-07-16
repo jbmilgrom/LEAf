@@ -36,4 +36,34 @@ class User < ActiveRecord::Base
       self.hashed_password = BCrypt::Engine.hash_secret(password, password_salt)
     end
   end
+
+
+  def update_articles
+    unless self.any_new_posts[0] == nil
+      @users_posts.each do |user_post|
+        if user_post.an_article
+          SavedArticle.save_article(self, user_post.an_article)
+        else
+          article = Article.create_article(user_post)
+          # binding.pry
+          SavedArticle.save_article(self, article) 
+        end
+      end
+    end
+  end
+
+  # private
+
+  def any_new_posts
+    @users_posts = Post.where(email: self.email)
+    
+    # delete all user posts that have already been turned into SaveArticles
+    @users_posts.each do |user_post|
+      self.articles.each do |article|
+        @users_posts.delete(user_post) if article.post_id == user_post.id
+      end
+    end
+    return @users_posts
+  end
+
 end
