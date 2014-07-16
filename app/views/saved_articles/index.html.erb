@@ -25,6 +25,6 @@
 $(function(){
   console.log("hello world");
   var myStuff = <%== @saved_articles.to_json %>;  
-  App.Initialize(myStuff);
+  App.Initializer.SavedArticle(myStuff);
 });
 </script>

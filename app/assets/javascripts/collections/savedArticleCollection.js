@@ -1,4 +1,4 @@
-var App = App || { Models: {}, Collections: {}, Views: {} };
+var App = App || { Models: {}, Collections: {}, Views: {}, Initializer: {} };
 
 App.Collections.SavedArticleCollection = Backbone.Collection.extend({
 	initialize: function(){

@@ -39,11 +39,13 @@ class User < ActiveRecord::Base
 
 
   def update_articles
+    # binding.pry
     unless self.any_new_posts[0] == nil
       @users_posts.each do |user_post|
         if user_post.an_article
           SavedArticle.save_article(self, user_post.an_article)
         else
+          # binding.pry
           article = Article.create_article(user_post)
           # binding.pry
           SavedArticle.save_article(self, article) 
@@ -56,7 +58,7 @@ class User < ActiveRecord::Base
 
   def any_new_posts
     @users_posts = Post.where(email: self.email)
-    
+    # binding.pry
     # delete all user posts that have already been turned into SaveArticles
     @users_posts.each do |user_post|
       self.articles.each do |article|

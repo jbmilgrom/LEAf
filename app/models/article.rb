@@ -9,6 +9,7 @@ class Article < ActiveRecord::Base
     # url = post.a_url
     
     processed_article = ArticleProcessor.new(post.a_url)
+    # binding.pry
     if processed_article
       Article.create({
         a_url: post.a_url,

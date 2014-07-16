@@ -17,6 +17,10 @@
 //= require backbone
 //= require app
 //= require models/savedArticle
+//= require models/followee
 //= require views/savedArticleView
+//= require views/followeeView
 //= require collections/savedArticleCollection
+//= require collections/followeeCollection
 //= require views/savedArticleCollectionView
+//= require views/followeeCollectionView
