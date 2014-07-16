@@ -38,17 +38,21 @@ class User < ActiveRecord::Base
   end
 
   def followers_with_user
-    {
-      user_id: self.id,
-      followers: self.followers
-    }
+    { user_id: self.id, followers: self.followers }
   end
 
   def followees_with_user
-    {
-      user_id: self.id,
-      followees: self.followees
-    }
+    { user_id: self.id, followees: self.followees }
+  end
+
+  def discoverable_users_with_user
+    { user_id: self.id, discoverable_users: self.discoverable_users }    
+  end
+
+  def discoverable_users
+    # TO DO: make more robust discoverable algorithm
+    # self.class.where(id: self.id) turns self into [self]
+    self.class.all - self.followees - self.class.where(id: self.id)
   end
 
   def update_articles

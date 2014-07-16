@@ -19,12 +19,16 @@
 //= require models/article
 //= require models/followee
 //= require models/follower
+//= require models/user
 //= require views/articleView
 //= require views/followeeView
 //= require views/followerView
+//= require views/userView
 //= require collections/articleCollection
 //= require collections/followeeCollection
 //= require collections/followerCollection
+//= require collections/userCollection
 //= require views/articleCollectionView
 //= require views/followeeCollectionView
 //= require views/followerCollectionView
+//= require views/userCollectionView

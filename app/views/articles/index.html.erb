@@ -22,9 +22,9 @@
 </script>
 
 <script>
-$(function(){
-  console.log("hello world");
-  var articles = <%== @articles.to_json %>;  
-  App.Initializer.Article(articles);
-});
+  $(function(){
+    console.log("hello world");
+    var articles = <%== @articles.to_json %>;  
+    App.Initializer.Article(articles);
+  });
 </script>

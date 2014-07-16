@@ -3,7 +3,7 @@ class FollowersController < ApplicationController
 	def index
 	user = User.find(params[:user_id])
     redirect_to sign_up_path and return unless current_user == user
-    # followers = user.followers
+    # need to send followers as well as owner (i.e. current_user)
     @followers_with_user = user.followers_with_user 
 	end
 

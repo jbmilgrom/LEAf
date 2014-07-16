@@ -5,5 +5,7 @@ App.Collections.ArticleCollection = Backbone.Collection.extend({
 		console.log("ArticleCollection init");		
 	},	
 	model: App.Models.Article
-	// url: '/users/:user_id/saved_articles'
+	// url: function(){
+	// 	return '/users/' + this.user_id + '/articles';
+	// }
 });

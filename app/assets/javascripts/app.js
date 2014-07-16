@@ -39,4 +39,16 @@ App.Initializer.Follower = function(firstLoad, user_id){
 	collection.add(firstLoad);
 }
 
+App.Initializer.User = function(firstLoad, user_id){
+	var user_id = user_id;
+	collection = new App.Collections.UserCollection([], {user_id: user_id});
+	
+	collectionView = new App.Views.UserCollectionView({
+		collection: collection,
+		el: $('#users_list')
+	});
+
+	collection.add(firstLoad);
+}
+
 
