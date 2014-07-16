@@ -1,4 +1,4 @@
-<%= @followers.to_json %>
+<%= @followers_with_user.to_json %>
 
 <h1>Followers</h1>
 <div id="followers_container">
@@ -7,17 +7,19 @@
 
 <script type="text/template" id='follower_template'>
   <p><%%= first_name %></p>
-  <p><%%= last_name %></p>    
-  <button data-action="view">
-    View
+  <p><%%= last_name %></p>
+  <button data-action="reading">
+    Reading 
+  </button>    
+  <button data-action="delete">
+    Delete 
   </button>
 </script>
 
-
 <script>
-$(function(){
-  console.log("hello followers");
-  var followers = <%== @followers_with_user.to_json %>;  
-  // App.Initialize(followers);
-});
+	$(function(){
+	  console.log("hello followers");
+	  var followers_with_user = <%== @followers_with_user.to_json %>;  
+	  App.Initializer.Follower(followers_with_user.followers, followers_with_user.user_id);
+	});
 </script>

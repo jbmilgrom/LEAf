@@ -6,4 +6,16 @@ class FolloweesController < ApplicationController
     @followees_with_user = user.followees_with_user 
 	end
 
+	def destroy
+    user = User.find(params[:user_id])
+    followee = User.find(params[:id])
+    follow = Follow.where(follower_id: user.id, followee_id: followee.id).first
+	  follow.destroy 
+
+    respond_to do |format|
+      format.json { render json: follow }
+    end
+
+  end
+
 end

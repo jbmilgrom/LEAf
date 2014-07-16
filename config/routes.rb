@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # root "posts#index"
-  root "saved_articles#index"
+  root "articles#index"
 
   # JUST FOR TESTING.  DELETE WHEN FINISHED
   resources :posts, only: :index
@@ -10,9 +10,7 @@ Rails.application.routes.draw do
   post '/email_processor' => 'griddler/emails#create'
 
   resources :users, except: :new do 
-  	resources :saved_articles, shallow: true
-    # get 'followers', on: :member
-    # get 'followees', on: :member
+  	resources :articles, shallow: true
     resources :followers, except: [:edit, :update]
     resources :followees, except: [:edit, :update]
   end

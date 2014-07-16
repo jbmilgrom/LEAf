@@ -18,9 +18,13 @@
 //= require app
 //= require models/savedArticle
 //= require models/followee
+//= require models/follower
 //= require views/savedArticleView
 //= require views/followeeView
+//= require views/followerView
 //= require collections/savedArticleCollection
 //= require collections/followeeCollection
+//= require collections/followerCollection
 //= require views/savedArticleCollectionView
 //= require views/followeeCollectionView
+//= require views/followerCollectionView

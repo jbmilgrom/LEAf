@@ -1,11 +1,6 @@
+class ArticlesController < ApplicationController
 
-#####  NEED TO DELETE THIS - NOTHING ROUTED HERE ANY LONGER #####
-
-class SavedArticlesController < ApplicationController
-	
-	# respond_to :json
   def index
-
 
     # user owner of the saved_articles
     @user = params[:user_id]
@@ -25,5 +20,6 @@ class SavedArticlesController < ApplicationController
       # format.json { binding.pry ; render json: saved_articles }
 		  format.json { render json: @saved_articles }
     end
-  end      
+  end 
+
 end
