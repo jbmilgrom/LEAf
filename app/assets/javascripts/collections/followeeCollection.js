@@ -4,7 +4,11 @@ App.Collections.FolloweeCollection = Backbone.Collection.extend({
 	initialize: function(models, options){
 		console.log("FolloweeCollection init");
 		this.user_id = options.user_id		
-	},	
-	model: App.Models.Followee
-	// url: '/users/:user_id/followees'
+	},
+
+	model: App.Models.Followee,
+	
+	url: function(){
+		return '/users/' + this.user_id + '/followees';
+	}
 });
