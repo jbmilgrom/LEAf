@@ -3,33 +3,33 @@ class ArticleProcessor
 
 	def initialize(url)
 		@doc_one = Pismo::Document.new(url)
-		@doc_two = Pismo::Document.new(url, :reader => :cluster)
+		# @doc_two = Pismo::Document.new(url, :reader => :cluster)
 	end	
 
 	def description
-		compare(:description)
+		process(:description)
 	end
 
 	def title
-		compare(:title)
+		process(:title)
 	end
 
 	def sentences(num)
-		compare_with_arg(:sentences, num)
+		process_with_arg(:sentences, num)
 	end
 
 	def body
-		compare(:body)
+		process(:body)
 	end
 
 	# private
 
-  def compare(data_type)
-    ( @doc_one.send(data_type) unless @doc_one.send(data_type) == "" ) || ( @doc_two.send(data_type) unless @doc_two.send(data_type) == "" )
+  def process(data_type)
+    @doc_one.send(data_type) unless @doc_one.send(data_type) == ""# ) || ( @doc_two.send(data_type) unless @doc_two.send(data_type) == "" )
   end
 
-	def compare_with_arg(data_type, num)
-		( @doc_one.send(data_type, num) unless @doc_one.send(data_type, num) == "" ) || ( @doc_two.send(data_type, num) unless @doc_two.send(data_type, num) == "" )
+	def process_with_arg(data_type, num)
+		@doc_one.send(data_type, num) unless @doc_one.send(data_type, num) == "" #) || ( @doc_two.send(data_type, num) unless @doc_two.send(data_type, num) == "" )
 	end
 
 end

@@ -1,5 +1,4 @@
 class EmailProcessor
-  # include ArticleProcessor
 
   def initialize(email)
     @email = email

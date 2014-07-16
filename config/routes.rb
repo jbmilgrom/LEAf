@@ -11,7 +11,10 @@ Rails.application.routes.draw do
 
   resources :users, except: :new do 
   	resources :saved_articles, shallow: true
+    get 'followers', on: :member
+    get 'followees', on: :member
   end
+
 
   get "/sign_up" => "users#new", :as => "sign_up"
   

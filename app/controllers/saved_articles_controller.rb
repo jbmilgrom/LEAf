@@ -9,7 +9,9 @@ class SavedArticlesController < ApplicationController
     # current_user is the viewer of the page
     redirect_to sign_up_path and return unless current_user
     #ultimately, need to only call @user.update_articles if @user == current_user
-    current_user.update_articles		
+    current_user.update_articles	
+
+    #WHY DOES UPDATE NOT WORK QUICK ENOUGH ON FIRST LOAD TO GET INTO @SAVED_ARTICLES	
 
 			# @user = User.find(params[:id])
 			# @user = current_user
