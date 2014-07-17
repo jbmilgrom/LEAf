@@ -11,6 +11,7 @@ class Article < ActiveRecord::Base
     processed_article = ArticleProcessor.new(post.a_url)
     # binding.pry
     if processed_article
+      # binding.pry
       Article.create({
         a_url: post.a_url,
         header: processed_article.title,
@@ -25,7 +26,5 @@ class Article < ActiveRecord::Base
         })
     end
 	end
-
-
 
 end

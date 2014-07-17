@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   attr_accessor :password
   before_save :encrypt_password
   
-  validates_confirmation_of :password
+  validates_confirmation_of :password_salt
   validates_presence_of :password, :on => :create
   validates_presence_of :email
   validates_uniqueness_of :email
@@ -49,6 +49,11 @@ class User < ActiveRecord::Base
     { user_id: self.id, discoverable_users: self.discoverable_users }    
   end
 
+
+  def articles_with_user
+    { user_id: self.id, articles: self.articles }
+  end
+
   def discoverable_users
     # TO DO: make more robust discoverable algorithm
     # self.class.where(id: self.id) turns self into [self]
@@ -57,15 +62,22 @@ class User < ActiveRecord::Base
 
   def update_articles
     # binding.pry
-    unless self.any_new_posts[0] == nil
-      @users_posts.each do |user_post|
+    new_user_posts = self.any_new_posts
+    # binding.pry
+    new_user_posts.uniq!
+    unless new_user_posts[0] == nil
+      # binding.pry
+      new_user_posts.each do |user_post|
         if user_post.an_article
+
           SavedArticle.save_article(self, user_post.an_article)
         else
-          # binding.pry
+
           article = Article.create_article(user_post)
           # binding.pry
+    
           SavedArticle.save_article(self, article) 
+ 
         end
       end
     end
@@ -73,16 +85,20 @@ class User < ActiveRecord::Base
 
   # private
 
+  # remove all posts that are already 
   def any_new_posts
-    @users_posts = Post.where(email: self.email)
+    users_posts = Post.where(email: self.email).to_a
     # binding.pry
     # delete all user posts that have already been turned into SaveArticles
-    @users_posts.each do |user_post|
+    users_posts.each do |user_post|
       self.articles.each do |article|
-        @users_posts.delete(user_post) if article.post_id == user_post.id
+        # binding.pry
+        users_posts.delete(user_post) if ( (article.post_id == user_post.id) || (article.a_url == user_post.a_url) )
+        # binding.pry
       end
     end
-    return @users_posts
+    # binding.pry
+    return users_posts
   end
 
 end

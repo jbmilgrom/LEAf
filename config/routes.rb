@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   post '/email_processor' => 'griddler/emails#create'
 
   resources :users, except: :new do 
-  	resources :articles, shallow: true
+  	resources :articles#, shallow: true
     resources :followers, except: [:edit, :update]
     resources :followees, except: [:edit, :update]
     get 'discover', on: :member

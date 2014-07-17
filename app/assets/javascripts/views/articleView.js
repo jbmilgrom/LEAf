@@ -1,7 +1,5 @@
 var App = App || { Models: {}, Collections: {}, Views: {}, Initializer: {} };
 
-console.log("STARTING to read ArticleView.js")
-
 App.Views.ArticleView = Backbone.View.extend({
 	initialize: function(){
 		// this listens for a crUUUUd (i.e. update) operation
@@ -11,12 +9,9 @@ App.Views.ArticleView = Backbone.View.extend({
 	},
 
 	tagName: 'li',
-	// template: function(){
-	// 	console.log("article view template is called");
-	// 	return _.template( $('#saved_articles_template').html() );
-	// },
+
 	events: {
-		'click button[name="delete_comment"]': 'removeComment'
+		'click button[data-action="destroy"]': 'removeArticle'
 	},
 
 	template: function() { 
@@ -38,4 +33,3 @@ App.Views.ArticleView = Backbone.View.extend({
 	}	
 });
 
-console.log("finished reading ArticleView.js");
