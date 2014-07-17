@@ -1,15 +1,14 @@
-
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
-    <div class="container article-stub" id="saved_articles_list">
+    <div class="container article-stub" id="articles_list">
     </div>
 
       <!-- Three columns of text below the carousel -->
 
         <!--   <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;"> -->
-        <script type="text/template" id='saved_articles_template'>
+        <script type="text/template" id='articles_template'>
           <div class="col-xs-6 col-xs-offset-3">
             <h2>Title: <%%= header %></h2>
             <p>Subheader: <%%= subheader %></p>
@@ -24,7 +23,25 @@
           </div>
          </script>
 
- <div class="container article-stub" id="saved_articles_list">
+<!--
+  <h3>URL: <%%= a_url %></h3>
+  <p>title: <%%= header %></p>
+  <p>subheader: <%%= subheader %></p>
+  <p><%%= body %></p>
+  <button data-action='destroy'>
+    Delete
+  </button>
+  <button data-action="favorite">
+    Star
+  </button>
+  <button data-action="archive">
+    Archive
+  </button>
+
+ -->
+
+
+ <div class="container article-stub">
       <div class="row">
         <div class="col-xs-6 col-xs-offset-3">
          <!--  <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;"> -->
@@ -50,3 +67,4 @@
     App.Initializer.Article(articles_with_user.articles, articles_with_user.user_id);
   });
 </script>
+

@@ -1,0 +1,25 @@
+<%= @followees_with_user.to_json %>
+
+<h1>Followees</h1>
+<div id="followees_container">
+	<ul id="followees_list"></ul>
+</div>
+
+<script type="text/template" id='followee_template'>
+  <p><%%= first_name %></p>
+  <p><%%= last_name %></p>
+  <button data-action="reading">
+    Reading 
+  </button>    
+  <button data-action="delete">
+    Delete 
+  </button>
+</script>
+
+<script>
+	$(function(){
+	  console.log("hello followees");
+	  var followees_with_user = <%== @followees_with_user.to_json %>;  
+	  App.Initializer.Followee(followees_with_user.followees, followees_with_user.user_id);
+	});
+</script>

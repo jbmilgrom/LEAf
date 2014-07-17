@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SavedArticlesControllerTest < ActionController::TestCase
+class ArticlesControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

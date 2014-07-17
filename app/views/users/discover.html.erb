@@ -1,0 +1,25 @@
+<%= @users.to_json %>
+
+<h1>Users</h1>
+
+<div id="users_container">
+	<ul id="users_list"></ul>
+</div>
+
+<script type="text/template" id='user_template'>
+  
+  <h3><%%= first_name %>  <%%= last_name %></h3>  
+  <button data-action='follow'>
+    Follow
+  </button>
+</script>
+
+<script>
+	$(function(){
+	  console.log("hello users");
+	  var discoverable_users_with_user = <%== @discoverable_users_with_user.to_json %>;
+	  var discoverable_users = discoverable_users_with_user.discoverable_users;
+	  var user_id = discoverable_users_with_user.user_id;
+	  App.Initializer.User(discoverable_users, user_id);
+	});
+</script>

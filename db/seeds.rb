@@ -3,13 +3,23 @@ Follow.delete_all
 SavedArticle.delete_all
 Article.delete_all
 
-user_emails = ["jbmilgrom@gmail.com", "nelson.schubart@gmail.com", "dmdehrey@gmail.com", "idangurel@gmail.com", "hannaemma4@gmail.com", "hannah.milgrom@gmail.com", "srmilgrom@gmail.com"]
+user_info = [
+	{email: "jbmilgrom@gmail.com", first_name: "Jonathan", last_name: "Milgrom"}, 
+	{email: "nelson.schubart@gmail.com", first_name: "Nelson", last_name: "Schubart"}, 
+	{email: "dmdehrey@gmail.com", first_name: "Daniel", last_name: "Dehrey"}, 
+	{email: "idangurel@gmail.com", first_name: "Idan", last_name: "Gurel"}, 
+	{email: "hannaemma4@gmail.com", first_name: "Hanna", last_name: "Alster"}, 
+	{email: "hannah.milgrom@gmail.com", first_name: "Hannah", last_name: "Milgrom"}, 
+	{email: "srmilgrom@gmail.com", first_name: "Sarah", last_name: "Milgrom"}
+]
 
 @users = []
-user_emails.each do |email|
+user_info.each do |user|
 	@users << User.create({
-		email: email,
-		password: "password123"
+		email: user[:email],
+		password: "password123",
+		first_name: user[:first_name],
+		last_name: user[:last_name]
 	})
 end
 

@@ -1,24 +1,24 @@
-var App = App || { Models: {}, Collections: {}, Views: {} };
+var App = App || { Models: {}, Collections: {}, Views: {}, Initializer: {} };
 
-App.Views.SavedArticleCollectionView = Backbone.View.extend({
+App.Views.ArticleCollectionView = Backbone.View.extend({
 	
 	initialize: function(){
-		console.log("SavedArticleCollectionView initialize");
+		console.log("ArticleCollectionView initialize");
 		this.listenTo(this.collection, 'all', this.render);
 	},
 
 	render: function(){
 		var self = this;
 		this.$el.empty();
-		console.log("SavedArticleCollectionView is rendering");
+		console.log("ArticleCollectionView is rendering");
 		// debugger
 		// Note that A Backbone View cannot be passed anything but a Backbone Model
 		// Fortunately, at this point, the Collection has been populated with Models
 		_.each(this.collection.models, function(model){
 			// debugger
-			var savedArticleView = new App.Views.SavedArticleView({model: model})
+			var articleView = new App.Views.ArticleView({model: model})
 			// debugger
-			self.$el.append( savedArticleView.render().el );
+			self.$el.append( articleView.render().el );
 			// debugger
 		})
 	}
