@@ -895,7 +895,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Gill Sans", Helvetica, Arial, sans-serif;
+  font-family: "Gill Sans", Helvetica Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
@@ -935,7 +935,7 @@ img {
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
   display: block;
-  width: 100% \9;
+  width: 90% \9;
   max-width: 100%;
   height: auto;
 }
@@ -5716,7 +5716,7 @@ button.close {
   position: relative;
 }
 .carousel-inner {
-  position: relative;
+  position: relative
   width: 100%;
   overflow: hidden;
 }

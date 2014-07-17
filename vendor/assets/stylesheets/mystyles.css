@@ -35,13 +35,12 @@ body {
   width: auto;
 }
 
-
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
 /* Carousel base class */
 .carousel {
-  height: 500px;
+  height: 300px;
   margin-bottom: 60px;
 }
 /* Since positioning the image, we need to help out the caption */
@@ -51,22 +50,21 @@ body {
 
 /* Declare heights because of positioning of img element */
 .carousel .item {
-  height: 500px;
-  background-color: #777;
+  height: 300px;
+  background-color: #fff;
 }
-.carousel-inner > .item > img {
+.carousel-inner {
   position: absolute;
   top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 500px;
+  left: 10;
+  min-width: 90%;
+  height: 300px;
 }
 
 
 
 /* STUBS
 -------------------------------------------------- */
-
 
 /* Center align the text within the three columns below the carousel */
 .article-stub h2, .follower-stub h2 {
@@ -146,4 +144,30 @@ body {
   .featurette-heading {
     margin-top: 120px;
   }
+}
+
+.myaccount {
+  text-align: right;
+}
+
+.myaccount {
+  text-align: right;
+}
+
+.footing {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+/*.dropdown-menu.pull-right {
+  right: 0;
+  left: auto;
+}*/
+/*.pull-right > .dropdown-menu {
+  right: 0;
+  left: auto;
+}*/
+
+.carousel-inner > .item > a > img {
+  padding-left: 10px;
+  padding-right: 10px;
 }

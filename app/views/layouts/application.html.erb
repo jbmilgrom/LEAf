@@ -49,24 +49,42 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#"> Leaf </a>
+              <a class="navbar-brand" href="#"> LEAf </a>
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
+                <li class="active"><a href="#">Articles</a></li>
+                <li><a href="#about">Feed</a></li>
+                <li><a href="#contact">Archived</a></li>
+                <li><a href="#contact">Discovery</a></li>
+                <li class="pull right">
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account<span class="caret"></span></a>
+                      <ul class="dropdown-menu" role="menu">
+
+                        <li><a href="#">   <% if current_user %>
+                         <%= link_to "#{current_user.email}", "/users/#{current_user.id}" %>
+                           <% else %>
+                           <%= link_to "Log in", log_in_path %>
+                        <% end %></a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Following</a></li>
+                        <li><a href="#">Followers</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header"></li>
+                        <li><a href="#">Edit Profile</a></li>
+                        <li><a href="#">Account Settings</a></li>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">  </a></li>
+
+                        <% if current_user %>
+                        <li><a href="/log_out">Logout</a></li>
+                        <% else %>
+                        <li><a href="/sign_up">Sign up</a>
+                        </li>
+                        <% end %>
+                      </ul>
+                  </li>
                 </li>
               </ul>
             </div>
@@ -76,16 +94,9 @@
       </div>
     </div>
 
+  <%= yield %>
 
 
-      <!-- FOOTER -->
-      <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>© 2014 Leaf, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
-      </footer>
-
-    </div>
-    <!-- /.container -->
 
 
     <!-- Bootstrap core JavaScript
@@ -105,20 +116,21 @@
       </object>
     </div>
 
-    <div id="user_nav">
-      <% if current_user %>
-         <%= link_to "#{current_user.email}", "/users/#{current_user.id}" %> <br>
-        Logged in as <%= current_user.email %>
+    </body>
 
-        <%= link_to "| Log out", log_out_path %>
-            <!-- make into button -->
+      <!-- FOOTER -->
+    <footer>
 
-      <% else %>
-        <%= link_to "Sign up", sign_up_path %> | <%= link_to "log in", log_in_path %>
-      <% end %>
-    </div>
+      <div class="col-xs-4 col-xs-offset-4">
+      <br></br>
+      <br></br>
+      <br></br>
 
-  <%= yield %>
+        <p><a href="#">Back to top</a></p><p>© 2014 Leaf, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+      </div>
+    </footer>
+    <!-- /.container -->
 
-  </body>
+
+
 </html>

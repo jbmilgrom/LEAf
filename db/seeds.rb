@@ -34,7 +34,7 @@ Post.all.each do |post|
 				post_id: post.id,
 			})
 		SavedArticle.create({
-			user_id: @users[0].id,
+			user_id: @users[1].id,
 			article_id: article.id
 			})
 	end

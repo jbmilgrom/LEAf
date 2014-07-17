@@ -10,7 +10,8 @@ App.Views.SavedArticleView = Backbone.View.extend({
 		this.listenTo(this.model, "destroy", this.remove);
 	},
 
-	tagName: 'li',
+	tagName: 'div',
+	className: 'row',
 	// template: function(){
 	// 	console.log("article view template is called");
 	// 	return _.template( $('#saved_articles_template').html() );
@@ -19,12 +20,12 @@ App.Views.SavedArticleView = Backbone.View.extend({
 		'click button[name="delete_comment"]': 'removeComment'
 	},
 
-	template: function() { 
+	template: function() {
 		return _.template( $('#saved_articles_template').html() )
 	},
 
 	render: function(){
-		console.log("article view rendering");		
+		console.log("article view rendering");
 		this.$el.empty();
 		this.$el.html(this.template()(this.model.attributes));
 
@@ -35,7 +36,7 @@ App.Views.SavedArticleView = Backbone.View.extend({
 		this.model.destroy();
 
 		return this;
-	}	
+	}
 });
 
 console.log("finished reading SavedArticleView.js");
