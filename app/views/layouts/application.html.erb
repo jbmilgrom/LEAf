@@ -53,10 +53,10 @@
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Articles</a></li>
+                <li class="active"><a href=<%= "/users/#{current_user.id}/articles" if current_user %>>Articles</a></li>
                 <li><a href="#about">Feed</a></li>
                 <li><a href="#contact">Archived</a></li>
-                <li><a href="#contact">Discovery</a></li>
+                <li><a href=<%= "/users/#{current_user.id}/discover" if current_user %>>Discover</a></li>
                 <li class="pull right">
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account<span class="caret"></span></a>
@@ -68,8 +68,8 @@
                            <%= link_to "Log in", log_in_path %>
                         <% end %></a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Following</a></li>
-                        <li><a href="#">Followers</a></li>
+                        <li><a href=<%= "/users/#{current_user.id}/followees" if current_user %>>Following</a></li>
+                        <li><a href=<%= "/users/#{current_user.id}/followers" if current_user %>>Followers</a></li>
                         <li class="divider"></li>
                         <li class="dropdown-header"></li>
                         <li><a href="#">Edit Profile</a></li>
