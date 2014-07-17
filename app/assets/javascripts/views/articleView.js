@@ -8,8 +8,6 @@ App.Views.ArticleView = Backbone.View.extend({
 		this.listenTo(this.model, "destroy", this.remove);
 	},
 
-	tagName: 'li',
-
 	events: {
 		'click button[data-action="destroy"]': 'removeArticle'
 	},

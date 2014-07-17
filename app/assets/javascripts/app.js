@@ -16,6 +16,7 @@ App.Initializer.Article = function(firstLoad, user_id){
 	articleCollection.add(firstLoad);
 }
 
+
 App.Initializer.Followee = function(firstLoad, user_id){
 	var user_id = user_id;
 	var followeeCollection = new App.Collections.FolloweeCollection([], {user_id: user_id});

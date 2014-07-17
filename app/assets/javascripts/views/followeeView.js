@@ -10,10 +10,10 @@ App.Views.FolloweeView = Backbone.View.extend({
 		this.listenTo(this.model, "destroy", this.remove);
 	},
 
-	tagName: 'li',
-
 	events: {
-		'click button[data-action="delete"]': 'deleteFollowee'
+		'click button[data-action="delete"]': 'deleteFollowee',
+		'click button[data-action="reading"]': 'readingAction'
+
 	},
 
 	template: function() { 
@@ -32,7 +32,12 @@ App.Views.FolloweeView = Backbone.View.extend({
 		this.model.destroy();
 
 		return this;
-	}	
+	},
+
+	readingAction: function(){
+		
+	}
+
 });
 
 console.log("finished reading FolloweeView.js");

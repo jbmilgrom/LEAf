@@ -10,8 +10,6 @@ App.Views.FollowerView = Backbone.View.extend({
 		this.listenTo(this.model, "destroy", this.remove);
 	},
 
-	tagName: 'li',
-
 	events: {
 		'click button[data-action="delete"]': 'deleteFollower'
 	},

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # root "posts#index"
-  root "articles#index"
+
+  root "splash#show"
+  # root "articles#index"
 
   # JUST FOR TESTING.  DELETE WHEN FINISHED
   resources :posts, only: :index

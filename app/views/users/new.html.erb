@@ -17,9 +17,11 @@
             </div>
           <% end %>
         <h2 class="form-signin-heading">Please sign up</h2><br>
-        <%= f.text_field :email, :class => 'form-control' %><br>
-        <%= f.password_field :password, :class => 'form-control' %><br>
-        <%= f.password_field :password_confirmation, :class => 'form-control' %><br>
+         <%= f.text_field :first_name, :class => 'form-control', :placeholder => "First Name" %><br>
+          <%= f.text_field :last_name, :class => 'form-control', :placeholder => "Last Name"  %><br>
+        <%= f.text_field :email, :class => 'form-control', :placeholder => "Email"  %><br>
+        <%= f.password_field :password, :class => 'form-control', :placeholder => "Password" %><br>
+        <%= f.password_field :password_confirmation, :class => 'form-control', :placeholder => "Confirm Password"  %><br>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
       <% end %>
 
