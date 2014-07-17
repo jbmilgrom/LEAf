@@ -2,10 +2,10 @@ var App = App || { Models: {}, Collections: {}, Views: {}, Initializer: {} };
 
 App.Initializer.Article = function(firstLoad, user_id){
 	var user_id = user_id;
-	collection = new App.Collections.ArticleCollection([], {user_id: user_id});
+	var articleCollection = new App.Collections.ArticleCollection([], {user_id: user_id});
 	
-	collectionView = new App.Views.ArticleCollectionView({
-		collection: collection,
+	var collectionView = new App.Views.ArticleCollectionView({
+		collection: articleCollection,
 		el: $('#articles_list')
 	});
 
@@ -13,43 +13,56 @@ App.Initializer.Article = function(firstLoad, user_id){
 	// creates models for each saved_article received in json from controller, 
 	// and adds to this.collection
 	// collection.fetch();
-	collection.add(firstLoad);
+	articleCollection.add(firstLoad);
 }
 
 App.Initializer.Followee = function(firstLoad, user_id){
 	var user_id = user_id;
-	collection = new App.Collections.FolloweeCollection([], {user_id: user_id});
+	var followeeCollection = new App.Collections.FolloweeCollection([], {user_id: user_id});
 	
-	collectionView = new App.Views.FolloweeCollectionView({
-		collection: collection,
+	var collectionView = new App.Views.FolloweeCollectionView({
+		collection: followeeCollection,
 		el: $('#followees_list')
 	});
 
-	collection.add(firstLoad);
+	followeeCollection.add(firstLoad);
+}
+
+App.Initializer.FolloweeCreate = function(followee, user_id){
+	var user_id = user_id;
+	var followeeCollection = new App.Collections.FolloweeCollection([], {user_id: user_id});
+	
+	var collectionView = new App.Views.FolloweeCollectionView({
+		collection: followeeCollection,
+		///// TO DO: this element is NOT on the DOM
+		el: $('#followees_list')
+	});
+
+	followeeCollection.create(followee);
 }
 
 App.Initializer.Follower = function(firstLoad, user_id){
 	var user_id = user_id;
-	collection = new App.Collections.FollowerCollection([], {user_id: user_id});
+	var followerCollection = new App.Collections.FollowerCollection([], {user_id: user_id});
 	
-	collectionView = new App.Views.FollowerCollectionView({
-		collection: collection,
+	var collectionView = new App.Views.FollowerCollectionView({
+		collection: followerCollection,
 		el: $('#followers_list')
 	});
 
-	collection.add(firstLoad);
+	followerCollection.add(firstLoad);
 }
 
 App.Initializer.User = function(firstLoad, user_id){
 	var user_id = user_id;
-	collection = new App.Collections.UserCollection([], {user_id: user_id});
+	var userCollection = new App.Collections.UserCollection([], {user_id: user_id});
 	
-	collectionView = new App.Views.UserCollectionView({
-		collection: collection,
+	var collectionView = new App.Views.UserCollectionView({
+		collection: userCollection,
 		el: $('#users_list')
 	});
 
-	collection.add(firstLoad);
+	userCollection.add(firstLoad);
 }
 
 

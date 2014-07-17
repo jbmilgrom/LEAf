@@ -13,7 +13,7 @@ App.Views.UserView = Backbone.View.extend({
 	tagName: 'li',
 
 	events: {
-		'click button[data-action="delete"]': 'deleteUser'
+		'click button[data-action="follow"]': 'followUser'
 	},
 
 	template: function() { 
@@ -28,9 +28,12 @@ App.Views.UserView = Backbone.View.extend({
 		return this;
 	},
 
-	deleteUser: function(){
-		this.model.destroy();
-
+	followUser: function(){
+		// this.model.destroy();
+		var user_id = this.collection.user_id;
+		App.Initializer.FolloweeCreate(this.model, user_id);
+		// need to make sure the POST request works.  write the method in the controller
+		// change button to unfollow
 		return this;
 	}	
 });
