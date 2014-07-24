@@ -9,7 +9,7 @@ App.Views.ArticleView = Backbone.View.extend({
 	},
 
 	events: {
-		'click button[data-action="destroy"]': 'removeArticle'
+		'click a[data-action="destroy"]': 'removeArticle'
 	},
 
 	template: function() { 

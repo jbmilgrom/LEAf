@@ -24,7 +24,10 @@ class ArticlesController < ApplicationController
     user = User.find(params[:user_id])
     article = Article.find(params[:id])
     saved_article = SavedArticle.where(user_id: user.id, article_id: article.id).first
-
+    post = Post.where({email: user.email, a_url: article.a_url}).first
+    # must also delete originating posts or update_articles will regenerate a SavedArticle
+    # think about deleting posts the instance they are turned into an Article
+    post.destroy
     saved_article.destroy
 
     respond_to do |format|

@@ -6,10 +6,8 @@ class Article < ActiveRecord::Base
 
 
 	def self.create_article(post)
-        # url = post.a_url
         
     processed_article = ArticleProcessor.new(post.a_url)
-    binding.pry
     if processed_article
       binding.pry
       Article.create({
@@ -20,7 +18,6 @@ class Article < ActiveRecord::Base
         post_id: post.id
         })
     else
-    	binding.pry
       Article.create({
         a_url: post.a_url,
         post_id: post.id

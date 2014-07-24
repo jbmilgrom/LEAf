@@ -2,7 +2,7 @@ var App = App || { Models: {}, Collections: {}, Views: {}, Initializer: {} };
 
 App.Initializer.Article = function(firstLoad, user_id){
 	var user_id = user_id;
-	var articleCollection = new App.Collections.ArticleCollection([], {user_id: user_id});
+	articleCollection = new App.Collections.ArticleCollection([], {user_id: user_id});
 	
 	var collectionView = new App.Views.ArticleCollectionView({
 		collection: articleCollection,

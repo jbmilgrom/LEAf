@@ -15,7 +15,6 @@ class SavedArticle < ActiveRecord::Base
   end
 
   def self.save_article(user, article)
-    binding.pry
     self.create!({
       user_id: user.id,
       article_id: article.id,
