@@ -61,23 +61,19 @@ class User < ActiveRecord::Base
   end
 
   def update_articles
-    # binding.pry
     new_user_posts = self.any_new_posts
-    # binding.pry
-    new_user_posts.uniq!
     unless new_user_posts[0] == nil
-      # binding.pry
-      new_user_posts.each do |user_post|
-        if user_post.an_article
 
+      new_user_posts.each do |user_post|
+        # match each Post's url with any previously created Article
+        # we do this to avoid scrapping the same web page more than once and creating duplicate Articles
+        if user_post.an_article
           SavedArticle.save_article(self, user_post.an_article)
         else
-
+          # Any new post (i.e. any url that hasn't already been scrapped and turning into an Article) is turned into an Article (through Pismo processing)
+          # Then the Article is linked to the User through creation of a SavedArticle
           article = Article.create_article(user_post)
-          # binding.pry
-    
           SavedArticle.save_article(self, article) 
- 
         end
       end
     end
@@ -85,20 +81,16 @@ class User < ActiveRecord::Base
 
   # private
 
-  # remove all posts that are already 
   def any_new_posts
-    users_posts = Post.where(email: self.email).to_a
-    # binding.pry
-    # delete all user posts that have already been turned into SaveArticles
-    users_posts.each do |user_post|
-      self.articles.each do |article|
-        # binding.pry
-        users_posts.delete(user_post) if ( (article.post_id == user_post.id) || (article.a_url == user_post.a_url) )
-        # binding.pry
-      end
+    posts = Post.where(email: self.email).to_a
+    # Deletes all of the user's posts that have already been turned into Articles and linked to the User (through a SavedArticle)
+    # Note that if a User posts an article more than once (even months apart), such post will not be send to def update_articles, and no additioonal SavedArticle will be created
+    # In other words, we may want to change the below to allow a user to email himself an article more than once
+    # Then again, doing so would not filter out accidental diplicate emails/posts
+    self.articles.each do |article|
+      posts.delete_if { |post| ( article.post_id == post.id ) || ( article.a_url == post.a_url ) }
     end
-    # binding.pry
-    return users_posts
+    return posts
   end
 
 end
