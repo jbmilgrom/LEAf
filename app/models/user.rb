@@ -60,6 +60,10 @@ class User < ActiveRecord::Base
     self.class.all - self.followees - self.class.where(id: self.id)
   end
 
+  def a_follower?(followee)
+    self.followees.include? followee
+  end
+
   def update_articles
     new_user_posts = self.any_new_posts
     unless new_user_posts[0] == nil

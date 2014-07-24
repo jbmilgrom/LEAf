@@ -35,7 +35,7 @@ App.Views.FolloweeView = Backbone.View.extend({
 	},
 
 	readingAction: function(){
-		
+		// should I handle the call for a followee's articles here or as done with a regular html link
 	}
 
 });

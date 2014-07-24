@@ -6,11 +6,11 @@
 <div class= "col-xs-6">
   <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;">
   <p><%%= first_name %> <%%= last_name %></p>
-  <button data-action="reading">
-    Reading 
-  </button>    
+  <form action=<%%= "../../users/" + id + "/articles" %> method="GET">
+    <input type="submit" value="Reading">
+  </form>   
   <button data-action="delete">
-    Delete 
+    UnFollow 
   </button>
 </div>
 
