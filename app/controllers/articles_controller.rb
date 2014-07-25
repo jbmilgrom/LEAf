@@ -26,7 +26,6 @@ class ArticlesController < ApplicationController
 
   def destroy
     user = User.find(params[:user_id])
-    binding.pry
     redirect_to sign_up_path and return unless current_user 
     ###### TO DO ######
     ##### THIS is creating a DELETE request to the desired path for some strange reason
