@@ -6,7 +6,9 @@ class ArticlesController < ApplicationController
     user = User.find(params[:user_id])
     # current_user is the viewer of the page
     redirect_to sign_up_path and return unless current_user 
-      redirect_to user_articles_path(current_user.id) unless current_user.a_follower?(user)
+      if user != current_user
+        redirect_to user_articles_path(current_user.id) and return unless current_user.a_follower?(user)
+      end
         ####TODO### need to only call @user.update_articles if @user == current_user
         
         
