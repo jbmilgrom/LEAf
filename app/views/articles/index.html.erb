@@ -17,7 +17,11 @@
               <a class="btn btn-default" href="#" role="button">View article »</a>
               <a class="btn btn-default" href="#" role="button">Favorite »</a>
               <a class="btn btn-default" href="#" role="button">Archive »</a>
+            <% if @user == current_user %>
               <a class="btn btn-default" data-action="destroy" href="#" role="button">Delete »</a>
+            <% else %>
+              <a class="btn btn-default" data-action="save" href="#" role="button">Save »</a>
+            <% end %>
             </p>
           </div>
          </script>
