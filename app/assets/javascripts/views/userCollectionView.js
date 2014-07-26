@@ -20,6 +20,6 @@ App.Views.UserCollectionView = Backbone.View.extend({
 			self.$el.append( userView.render().el );
 
 		})
-	}
+	},
 
 });

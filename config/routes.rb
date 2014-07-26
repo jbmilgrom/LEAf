@@ -14,8 +14,9 @@ Rails.application.routes.draw do
   resources :users, except: :new do 
   	resources :articles#, shallow: true
     resources :followers, except: [:edit, :update]
-    resources :followees, except: [:edit, :update]
-    get 'discover', on: :member
+    resources :followees, except: [:edit, :update] do 
+      get 'discover', on: :collection
+    end
   end
 
 

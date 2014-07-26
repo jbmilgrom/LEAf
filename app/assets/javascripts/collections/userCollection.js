@@ -9,6 +9,6 @@ App.Collections.UserCollection = Backbone.Collection.extend({
 	model: App.Models.User,
 	
 	url: function(){
-		return '/users/' + this.user_id + '/discover';
+		return '/users/' + this.user_id + 'followees';
 	}
 });

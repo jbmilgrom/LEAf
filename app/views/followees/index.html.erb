@@ -1,6 +1,7 @@
 
 
 <div class="container marketing" id="followees_list">
+
 </div>
 <script type="text/template" id='followee_template'>
 <div class= "col-xs-6">
@@ -9,7 +10,6 @@
   <form action=<%%= "../../users/" + id + "/articles" %> method="GET">
     <input type="submit" value="Reading">
   </form> 
-    //need to call App.Initializer.FolloweeCreate to create follower.  the listeners are already there to make the ajax call.  the problem is that no collection has been initiated server side through this view.  Sooo, maybe intialize a dummy followee collection on page load that will accept any new entries and send the correct post request through the followee controller, which then redirects to whatever page I want!!! Yayyyy
   <button data-action="delete">
     UnFollow 
   </button>

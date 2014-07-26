@@ -29,17 +29,10 @@ App.Initializer.Followee = function(firstLoad, user_id){
 	followeeCollection.add(firstLoad);
 }
 
-App.Initializer.FolloweeCreate = function(followee, user_id){
+App.Initializer.FolloweeCreate = function(user_id){
 	var user_id = user_id;
 	var followeeCollection = new App.Collections.FolloweeCollection([], {user_id: user_id});
-	
-	var collectionView = new App.Views.FolloweeCollectionView({
-		collection: followeeCollection,
-		///// TO DO: this element is NOT on the DOM
-		el: $('#followees_list')
-	});
 
-	followeeCollection.create(followee);
 }
 
 App.Initializer.Follower = function(firstLoad, user_id){
