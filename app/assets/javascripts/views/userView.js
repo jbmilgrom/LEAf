@@ -13,7 +13,7 @@ App.Views.UserView = Backbone.View.extend({
 	tagName: 'li',
 
 	events: {
-		// 'click button[data-action="follow"]': 'followUser'
+		'click button[data-action="follow"]': 'followUser'
 	},
 
 	template: function() { 
@@ -30,7 +30,7 @@ App.Views.UserView = Backbone.View.extend({
 
 	followUser: function(){
 		// this.model.destroy();
-
+		console.log("followUser init");
 		// Ultimately, think about creating a nested Followee model, and using this function to create a Followee
 		// This will allow current user to follow and unfollow on this page --> more complex follow rendering
 		// When building the nested model, it may make sense to alter the original Followee Backbone
@@ -64,6 +64,8 @@ App.Views.UserView = Backbone.View.extend({
 
 		// of course, now it makes sense to delete this function and listener all together
 		// the collection.add(model) happens at the.....collection level
+		// NOT TRUE!!, since, now, I've made followCollection an attribute of the user Model
+		this.model.attributes.followeeCollection.create(this.model);
 
 		// need to make sure the POST request works.  write the method in the controller
 		// change button to unfollow

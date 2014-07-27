@@ -3,7 +3,8 @@ var App = App || { Models: {}, Collections: {}, Views: {}, Initializer: {} };
 App.Collections.UserCollection = Backbone.Collection.extend({
 	initialize: function(models, options){
 		console.log("UserCollection init");
-		this.user_id = options.user_id		
+		this.user_id = options.user_id;
+
 	},
 
 	model: App.Models.User,
