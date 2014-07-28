@@ -49,7 +49,7 @@ App.Initializer.Follower = function(firstLoad, user_id){
 
 App.Initializer.User = function(firstLoad, user_id){
 	var user_id = user_id;
-	 userCollection = new App.Collections.UserCollection([], {user_id: user_id});
+	userCollection = new App.Collections.UserCollection([], {user_id: user_id});
 	
 	var collectionView = new App.Views.UserCollectionView({
 		collection: userCollection,

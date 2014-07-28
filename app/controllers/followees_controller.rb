@@ -1,6 +1,6 @@
 class FolloweesController < ApplicationController
 
-	 def discover
+	def discover
     user = User.find(params[:user_id])
     redirect_to sign_up_path and return unless current_user == user
     # need to send discoverable_users as well as owner (i.e. current_user)

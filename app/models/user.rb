@@ -97,4 +97,8 @@ class User < ActiveRecord::Base
     return posts
   end
 
+  def serializable_hash(options = nil)
+    {id: id, first_name: first_name, last_name: last_name, picture: picture}
+  end
+
 end
