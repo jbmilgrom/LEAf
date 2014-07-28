@@ -29,13 +29,15 @@ class FolloweesController < ApplicationController
   end
 
   def create
-    binding.pry
+    # binding.pry
     user = User.find(params[:user_id])
+    followee = User.find(params[:followee_id])
     # followee = params[]
-    # follow = Follow.create!()
+    follow = Follow.create!(follower_id: user.id, followee_id: followee.id)
     # redirect_to user_followees_path(user)
-     respond_to do |format|
-      format.json { render json: follow }
+    # responding with followee (instead of follow) b/c User models are the resource (not the joiner table)
+    respond_to do |format|
+      format.json { render json: followee }
     end
   end
 

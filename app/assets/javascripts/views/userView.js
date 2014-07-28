@@ -61,13 +61,18 @@ App.Views.UserView = Backbone.View.extend({
 		// the Followee models truly are nested resources.  They will belong to a "Discover" User.  
 		// In other words, to Create a Followee model you are going to have to feed the Followee collection a Discover model
 
-
+		
 		// of course, now it makes sense to delete this function and listener all together
 		// the collection.add(model) happens at the.....collection level
 		// NOT TRUE!!, since, now, I've made followCollection an attribute of the user Model
-		this.model.attributes.followeeCollection.create(this.model);
+		this.model.attributes.followeeCollection.create({followee_id: this.model.attributes.id});
 
-		// need to make sure the POST request works.  write the method in the controller
+		//######## TO DO ##########
+
+		// Remove discoverable User from unrefreshed page with a notice of some sort
+
+		// ####### END ########
+
 		// change button to unfollow
 		return this;
 	}	

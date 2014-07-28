@@ -12,7 +12,7 @@ App.Views.UserCollectionView = Backbone.View.extend({
 		
 		this.$el.empty();
 		console.log("UserCollectionView is rendering");	
-		this.$el.append("<h1> user_id: " + this.collection.user_id + "</h1>");
+		this.$el.append("<h1> current_user.id: " + this.collection.user_id + "</h1>");
 		
 		_.each(this.collection.models, function(model){
 			
