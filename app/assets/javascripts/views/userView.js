@@ -66,7 +66,7 @@ App.Views.UserView = Backbone.View.extend({
 		// the collection.add(model) happens at the.....collection level
 		// NOT TRUE!!, since, now, I've made followCollection an attribute of the user Model
 		this.model.attributes.followeeCollection.create({followee_id: this.model.attributes.id});
-
+		this.remove();
 		//######## TO DO ##########
 
 		// Remove discoverable User from unrefreshed page with a notice of some sort
