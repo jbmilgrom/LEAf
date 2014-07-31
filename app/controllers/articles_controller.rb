@@ -24,13 +24,17 @@ class ArticlesController < ApplicationController
     end
   end
 
+
   def destroy
     user = User.find(params[:user_id])
     redirect_to sign_up_path and return unless current_user 
     ###### TO DO ######
-    ##### THIS is creating a DELETE request to the desired path for some strange reason
-    ##### There is no impact at the moment because the DELETE button has been removed when c_u != user
-    redirect_to user_articles_path(current_user) and return unless current_user == user
+      # THIS is creating a DELETE request to the desired path for some strange reason
+      # But there is no impact at the moment because the DELETE button has been removed when c_u != user
+      # Ok, the above is incorrect... We are only here b/c of ajax call, which can't be redirected
+      # which, as a request for data alone (json), can't be redirected to another html page
+      # Although the button has been deleted, think about keeping the below protection in here somehow
+      # redirect_to user_articles_path(current_user) and return unless current_user == user
     
     article = Article.find(params[:id])
     saved_article = SavedArticle.where(user_id: user.id, article_id: article.id).first

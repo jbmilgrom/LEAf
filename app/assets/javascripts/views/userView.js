@@ -7,7 +7,7 @@ App.Views.UserView = Backbone.View.extend({
 		// this listens for a crUUUUd (i.e. update) operation
 		console.log("UserView init");
 		this.listenTo(this.model, "change", this.render);
-		this.listenTo(this.model, "destroy", this.remove);
+		// this.listenTo(this.model, "destroy", this.remove);
 	},
 
 	tagName: 'li',
@@ -66,6 +66,8 @@ App.Views.UserView = Backbone.View.extend({
 		// the collection.add(model) happens at the.....collection level
 		// NOT TRUE!!, since, now, I've made followCollection an attribute of the user Model
 		this.model.attributes.followeeCollection.create({followee_id: this.model.attributes.id});
+		// removes element from the DOM (and corresponding listers)
+		// Does not touch model itself and view object assosicated therewith, which is we we can return this
 		this.remove();
 		//######## TO DO ##########
 
