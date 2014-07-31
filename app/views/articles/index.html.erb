@@ -12,8 +12,13 @@
         <script type="text/template" id='articles_template'>
 
           <div class="col-xs-6 col-xs-offset-3">
-            <h2><a href="<%%= a_url %>"><%%= header %></a></h2>
-            <p><%%= subheader %></p>
+            <%% if (received? === "true") { %> 
+              <h2><a href="<%%= a_url %>"><%%= header %></a></h2>
+              <p><%%= subheader %></p>
+            <%% } else { %>
+              <%%= // NEED to think about parsing the URL for a header and domain in this case %>
+              <h2>Your<a href="<%%= a_url %>">Article</a></h2>
+            <%% } %> 
             <p>
               <a class="btn btn-default" href="#" role="button">View article »</a>
               <a class="btn btn-default" href="#" role="button">Favorite »</a>

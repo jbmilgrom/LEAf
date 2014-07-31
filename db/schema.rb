@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716112541) do
+ActiveRecord::Schema.define(version: 20140731212812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20140716112541) do
     t.text     "subheader"
     t.integer  "post_id"
     t.text     "header"
+    t.boolean  "received?"
   end
 
   create_table "follows", force: true do |t|

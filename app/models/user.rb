@@ -70,7 +70,7 @@ class User < ActiveRecord::Base
 
       new_user_posts.each do |user_post|
         # match each Post's url with any previously created Article
-        # we do this to avoid scrapping the same web page more than once and creating duplicate Articles
+        # we do this to avoid scraping the same web page more than once and creating duplicate Articles
         if user_post.an_article
           SavedArticle.save_article(self, user_post.an_article)
         else
