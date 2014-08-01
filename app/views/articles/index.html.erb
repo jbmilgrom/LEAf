@@ -9,28 +9,41 @@
       <!-- Three columns of text below the carousel -->
 
         <!--   <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" style="width: 140px; height: 140px;"> -->
-        <script type="text/template" id='articles_template'>
+        <script type="text/template" id='articles_template_received'>
 
           <div class="col-xs-6 col-xs-offset-3">
-            <%% if (received? === "true") { %> 
               <h2><a href="<%%= a_url %>"><%%= header %></a></h2>
               <p><%%= subheader %></p>
-            <%% } else { %>
-              <%%= // NEED to think about parsing the URL for a header and domain in this case %>
-              <h2>Your<a href="<%%= a_url %>">Article</a></h2>
-            <%% } %> 
             <p>
               <a class="btn btn-default" href="#" role="button">View article »</a>
               <a class="btn btn-default" href="#" role="button">Favorite »</a>
               <a class="btn btn-default" href="#" role="button">Archive »</a>
-            <% if @user == current_user %>
-              <a class="btn btn-default" data-action="destroy" href="#" role="button">Delete »</a>
-            <% else %>
-              <a class="btn btn-default" data-action="save" href="#" role="button">Save »</a>
-            <% end %>
+              <% if @user == current_user %>
+                <a class="btn btn-default" data-action="destroy" href="#" role="button">Delete »</a>
+              <% else %>
+                <a class="btn btn-default" data-action="save" href="#" role="button">Save »</a>
+              <% end %>
             </p>
           </div>
-         </script>
+        </script>
+
+        <script type="text/template" id='articles_template_not_received'>
+
+          <div class="col-xs-6 col-xs-offset-3">
+              <h2>Your <a href="<%%= a_url %>">Article</a></h2>
+              <p>Please visit [PARSED DOMAIN] to see full article</p>
+            <p>
+              <a class="btn btn-default" href="#" role="button">View article »</a>
+              <a class="btn btn-default" href="#" role="button">Favorite »</a>
+              <a class="btn btn-default" href="#" role="button">Archive »</a>
+              <% if @user == current_user %>
+                <a class="btn btn-default" data-action="destroy" href="#" role="button">Delete »</a>
+              <% else %>
+                <a class="btn btn-default" data-action="save" href="#" role="button">Save »</a>
+              <% end %>
+            </p>
+          </div>
+        </script>
 
 <script>
   $(function(){

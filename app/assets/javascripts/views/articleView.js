@@ -12,14 +12,22 @@ App.Views.ArticleView = Backbone.View.extend({
 		'click a[data-action="destroy"]': 'removeArticle'
 	},
 
-	template: function() { 
-		return _.template( $('#articles_template').html() ); 
+	template_one: function() { 
+		return _.template( $('#articles_template_received').html() ); 
+	},
+
+	template_two: function() { 
+		return _.template( $('#articles_template_not_received').html() ); 
 	},
 
 	render: function(){
 		console.log("article view rendering");		
 		this.$el.empty();
-		this.$el.html(this.template()(this.model.attributes));
+		if (this.model.get("received?") === true) {
+			this.$el.html(this.template_one()(this.model.attributes));
+		} else {
+			this.$el.html(this.template_two()(this.model.attributes));
+		}
 
 		return this;
 	},
