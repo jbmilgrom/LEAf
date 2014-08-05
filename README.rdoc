@@ -9,8 +9,7 @@ post '/email_processor' => 'griddler/emails#create'  --  https://github.com/jbmi
 
 Which directs emails to the EmailProcessor class -- https://github.com/jbmilgrom/LEAf/blob/master/app/classes/email_processor.rb
 
-Since The url can appear in a number of places in the email, the following email method is used
-url_array = [self.subject, self.raw_text, self.raw_body, self.raw_html].map { |raw_data| /(http:\/\/[\w._?=\-&\/]+)/.match(raw_data) }.compact
+A parsing method looks for url and applies a regex to pull it out
 -- https://github.com/jbmilgrom/LEAf/blob/master/app/models/post.rb
 
 When a user visits the user's articles page an instance of ArticleProcesser is created using the Pismo gem (which is built on top of Nokogiri)
