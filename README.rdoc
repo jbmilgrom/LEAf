@@ -1,28 +1,13 @@
-== README
+LEAf enables users to save digital content from any device.  Email the app from any devise with a url anywhere in the email.  LEAf recieves the email, recognizes the sender and parses the email for the url.  Next time the user visits his article page the app scraps article's webpage using the parsed url.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Thoughtbot's Griddler gem (in combination with SendGrid servers) is used to parse incoming email.  
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Emails sent to /\w/@leafbeta.com are forwarded to SendGrid.  SendGrid parsing the email and send it to LEAf as the descript route:
+
+<a href="https://github.com/jbmilgrom/LEAf/blob/master/config/routes.rb">post '/email_processor' => 'griddler/emails#create'</a>
+
+
+
+
+A regex expression
