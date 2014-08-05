@@ -2,6 +2,7 @@ User.delete_all
 Follow.delete_all
 SavedArticle.delete_all
 Article.delete_all
+Post.delete_all
 
 user_info = [
 	{email: "jbmilgrom@gmail.com", first_name: "Jonathan", last_name: "Milgrom"}, 
