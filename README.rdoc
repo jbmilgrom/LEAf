@@ -1,15 +1,15 @@
-LEAf enables users to save digital content from any device.  Email the app from any devise with a url placed anywhere in the email.  LEAf recieves the email, recognizes the sender and parses the email for the url.  Next time the user visits his article page the app scrapes the article's webpage using the parsed url.
+LEAf enables users to save digital content from any device.  Email the app from any devise with a url placed anywhere in the email.  LEAf recieves the email, recognizes the sender and parses the email for the url.  Next time the user visits the user's article page the app scrapes the article's webpage using the parsed url.
 
 Thoughtbot's Griddler gem (in combination with SendGrid servers) is used to parse incoming email.  
 
 
-Emails sent to /\w/@leafbeta.com are forwarded to SendGrid.  SendGrid parsing the email and send it to LEAf as the descript route:
+Emails sent to /\w/@leafbeta.com are forwarded to SendGrid.  SendGrid parses the email and sends it to LEAf at the descript route:
 
 post '/email_processor' => 'griddler/emails#create'  --  https://github.com/jbmilgrom/LEAf/blob/master/config/routes.rb
 
-Emails are directed to the EmailProcessor class -- https://github.com/jbmilgrom/LEAf/blob/master/app/classes/email_processor.rb
+Which directs emails to the EmailProcessor class -- https://github.com/jbmilgrom/LEAf/blob/master/app/classes/email_processor.rb
 
-url is parsed from the email with this expression
+Since The url can appear in a number of places in the email, the following email method is used
 url_array = [self.subject, self.raw_text, self.raw_body, self.raw_html].map { |raw_data| /(http:\/\/[\w._?=\-&\/]+)/.match(raw_data) }.compact
 -- https://github.com/jbmilgrom/LEAf/blob/master/app/models/post.rb
 
