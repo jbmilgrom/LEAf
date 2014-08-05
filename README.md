@@ -51,6 +51,7 @@ A parsing method looks for url and applies a regex to pull it out:
 [post.rb](http://github.com/jbmilgrom/LEAf/blob/master/app/models/post.rb)
   	
   	def parse_url
+    	
     	# the url seems to appear in at least one of the three attributes in the below array
     	# map the attribute array to an array of all positive hits using regex expressing
     	url_array = [self.subject, self.raw_text, self.raw_body, self.raw_html].map { |raw_data| /(http:\/\/[\w._?=\-&\/]+)/.match(raw_data) }.compact
@@ -119,6 +120,7 @@ A processed_article is created only if it hasn't been created before:
 
 	  def any_new_posts
 	    posts = Post.where(email: self.email).to_a
+	    
 	    # Deletes all of the user's posts that have already been turned into Articles and linked to the User (through a SavedArticle)
 	    # Note that if a User posts an article more than once (even months apart), such post will not be sent to def update_articles, and no additional SavedArticle will be created
 	    # In other words, may want to change the below to allow a user to email himself an article more than once
@@ -137,11 +139,13 @@ In such a case, an article may be created:
 	  new_user_posts = self.any_new_posts
 	  unless new_user_posts[0] == nil
 	    new_user_posts.each do |user_post|
+	      
 	      # match each Post's url with any previously created Article
 	      # we do this to avoid scraping the same web page more than once and creating duplicate Articles
 	      if user_post.an_article
 	        SavedArticle.save_article(self, user_post.an_article)
 	      else
+	        
 	        # Any new post (i.e. any url that hasn't already been scrapped and turning into an Article) is turned into an Article (through Pismo processing)
 	        # Then the Article is linked to the User through creation of a SavedArticle
 	        article = Article.create_article(user_post)
