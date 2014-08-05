@@ -33,6 +33,14 @@ class FolloweesController < ApplicationController
     user = User.find(params[:user_id])
     followee = User.find(params[:followee_id])
     # followee = params[]
+
+
+    #### TO DO ######
+    # currently using .create! because there is no UI protection
+    # again c_u folowing a User more than once
+    # need to do that
+    #################
+    
     follow = Follow.create!(follower_id: user.id, followee_id: followee.id)
     # redirect_to user_followees_path(user)
     # responding with followee (instead of follow) b/c User models are the resource (not the joiner table)

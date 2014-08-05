@@ -37,7 +37,12 @@ class ArticlesController < ApplicationController
 
     redirect_to sign_up_path and return unless current_user == user
 
-    saved_article = SavedArticle.create({article_id: article.id, user_id: user.id})
+    #### TO DO ######
+    # provide a notice of some sort when discoverable User 
+    # is followed and removed from page
+    #################
+
+    saved_article = SavedArticle.create!({article_id: article.id, user_id: user.id})
 
     respond_to do |format|
       format.json { render json: saved_article}

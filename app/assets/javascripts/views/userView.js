@@ -28,9 +28,10 @@ App.Views.UserView = Backbone.View.extend({
 		return this;
 	},
 
-	followUser: function(){
+	followUser: function(e){
 		// this.model.destroy();
 		console.log("followUser init");
+		e.preventDefault();
 		// Ultimately, think about creating a nested Followee model, and using this function to create a Followee
 		// This will allow current user to follow and unfollow on this page --> more complex follow rendering
 		// When building the nested model, it may make sense to alter the original Followee Backbone
@@ -69,9 +70,10 @@ App.Views.UserView = Backbone.View.extend({
 		// removes element from the DOM (and corresponding listers)
 		// Does not touch model itself and view object assosicated therewith, which is we we can return this
 		this.remove();
+
 		//######## TO DO ##########
 
-		// Remove discoverable User from unrefreshed page with a notice of some sort
+		// Provide a notice of some sort when discoverable User is removed from page
 
 		// ####### END ########
 

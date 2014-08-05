@@ -33,14 +33,15 @@ App.Views.ArticleView = Backbone.View.extend({
 		return this;
 	},
 
-	removeArticle: function(){
+	removeArticle: function(e){
+		e.preventDefault();
 		this.model.destroy();
 
 		return this;
 	},	
 
-	saveArticle: function(){
-
+	saveArticle: function(e){
+		e.preventDefault();
 		
 		// current_user has already been linked to this articleCollection
 		// in Article Initializer
