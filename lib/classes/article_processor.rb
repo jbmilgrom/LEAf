@@ -1,36 +1,36 @@
 class ArticleProcessor
-	require 'open-uri'
+  require 'open-uri'
 
   attr_reader :received
   alias_method :received?, :received
 	
   def initialize(url)
-		begin
-			@doc_one = Pismo::Document.new(url)
+    begin
+      @doc_one = Pismo::Document.new(url)
       @received = true
-		rescue Exception => e
+    rescue Exception => e
       @received = false
-		end
-		# @doc_two = Pismo::Document.new(url, :reader => :cluster)
-	end	
+    end
+      # @doc_two = Pismo::Document.new(url, :reader => :cluster)
+  end	
 
-	def description
-		process(:description)
-	end
+  def description
+    process(:description)
+  end
 
-	def title
-		process(:title)
-	end
+  def title
+    process(:title)
+  end
 
-	def sentences(num)
-		process_with_arg(:sentences, num)
-	end
+  def sentences(num)
+    process_with_arg(:sentences, num)
+  end
 
-	def body
-		process(:body)
-	end
+  def body
+    process(:body)
+  end
 
-	# private
+  # private
 
   def process(data_type)
     if @received
@@ -38,10 +38,10 @@ class ArticleProcessor
     end
   end
 
-	def process_with_arg(data_type, num)
-		if @received 
+  def process_with_arg(data_type, num)
+    if @received 
       @doc_one.send(data_type, num) unless @doc_one.send(data_type, num) == "" #) || ( @doc_two.send(data_type, num) unless @doc_two.send(data_type, num) == "" )
-	  end
+    end
   end
 
 end
