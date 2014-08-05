@@ -7,12 +7,12 @@ Rails.application.routes.draw do
   # JUST FOR TESTING.  DELETE WHEN FINISHED
   resources :posts, only: :index
 
-	# post '/email_processor' is the SendGrid spec route
-	# 'griddler/emails#create' triggers the Griddler gem from processing
+  # post '/email_processor' is the SendGrid spec route
+  # 'griddler/emails#create' triggers the Griddler gem from processing
   post '/email_processor' => 'griddler/emails#create'
 
   resources :users, except: :new do 
-  	resources :articles#, shallow: true
+    resources :articles#, shallow: true
     resources :followers, except: [:edit, :update]
     resources :followees, except: [:edit, :update] do 
       get 'discover', on: :collection
