@@ -1,11 +1,11 @@
 class Article < ActiveRecord::Base
-	has_many :users, through: :saved_articles
-	has_many :saved_articles
+  has_many :users, through: :saved_articles
+  has_many :saved_articles
 
- 	has_one :post
+  has_one :post
 
 
-	def self.create_article(post)       
+  def self.create_article(post)       
     article = ArticleProcessor.new(post.a_url)
     Article.create({
       a_url: post.a_url,
@@ -15,6 +15,6 @@ class Article < ActiveRecord::Base
       post_id: post.id,
       received?: article.received?
     })
-	end
+  end
 
 end
