@@ -1,7 +1,8 @@
 LEAf enables users to save digital content from any device.  Email the app from any devise with a url placed anywhere in the email.  LEAf recieves the email, recognizes the sender and parses the email for the url.  Next time the user visits the user's article page the app scrapes the article's webpage using the parsed url.
 
-Thoughtbot's Griddler gem (in combination with SendGrid servers) is used to parse incoming email.  
+ERD: Posts are created from incoming emails.  Articles are created from parsed Posts.  A User is linked to an Article through SavedArticles (join table).  Users can have many followeers and followees through a Follow (self join table).
 
+Thoughtbot's Griddler gem (in combination with SendGrid servers) is used to parse incoming email.  
 
 Emails sent to /\w/@leafbeta.com are forwarded to SendGrid.  SendGrid parses the email and sends it to LEAf at the descript route:
 
