@@ -1,6 +1,6 @@
 class SplashController < ApplicationController
 
-	def show
-
-	end
+  def show
+  end
+  
 end
