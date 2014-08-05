@@ -37,17 +37,6 @@ nelson = @users[1]
 	end
 end
 
-Post.all.each do |post|
-	if post.a_url
-		article = Article.create({
-				a_url: post.a_url,
-				post_id: post.id,
-			})
-		SavedArticle.create({
-			user_id: @users[1].id,
-			article_id: article.id
-			})
-	end
-end
+
 
 
