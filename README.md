@@ -120,8 +120,8 @@ A processed_article is created only if it hasn't been created before:
 	  def any_new_posts
 	    posts = Post.where(email: self.email).to_a
 	    # Deletes all of the user's posts that have already been turned into Articles and linked to the User (through a SavedArticle)
-	    # Note that if a User posts an article more than once (even months apart), such post will not be send to def update_articles, and no additioonal SavedArticle will be created
-	    # In other words, we may want to change the below to allow a user to email himself an article more than once
+	    # Note that if a User posts an article more than once (even months apart), such post will not be sent to def update_articles, and no additional SavedArticle will be created
+	    # In other words, may want to change the below to allow a user to email himself an article more than once
 	    # Then again, doing so would not filter out accidental diplicate emails/posts
 	    self.articles.each do |article|
 	      posts.delete_if { |post| ( article.post_id == post.id ) || ( article.a_url == post.a_url ) }
