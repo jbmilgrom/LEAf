@@ -50,8 +50,8 @@ class User < ActiveRecord::Base
   end
 
 
-  def articles_with_user
-    { user_id: self.id, articles: self.articles }
+  def articles_with_user_and(current_user)
+    { users: { user_id: self.id, current_user_id: current_user.id }, articles: self.articles }
   end
 
   def discoverable_users

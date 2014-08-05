@@ -48,7 +48,8 @@
 <script>
   $(function(){
     console.log("hello world");
-    var articles_with_user = <%== @articles_with_user.to_json %>;
-    App.Initializer.Article(articles_with_user.articles, articles_with_user.user_id);
+    var articles_with_users = <%== @articles_with_users.to_json %>;
+    
+    App.Initializer.Article(articles_with_users.articles, articles_with_users.users);
   });
 </script>

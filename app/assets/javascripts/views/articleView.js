@@ -9,7 +9,8 @@ App.Views.ArticleView = Backbone.View.extend({
 	},
 
 	events: {
-		'click a[data-action="destroy"]': 'removeArticle'
+		'click a[data-action="destroy"]': 'removeArticle',
+		'click a[data-action="save"]': 'saveArticle'
 	},
 
 	template_one: function() { 
@@ -36,6 +37,18 @@ App.Views.ArticleView = Backbone.View.extend({
 		this.model.destroy();
 
 		return this;
-	}	
+	},	
+
+	saveArticle: function(){
+		
+		// var modelAttributes = this.model.attributes;
+		// delete modelAttributes.currentUserArticleCollection;
+		// debugger 
+		// this.model.attributes.currentUserArticleCollection.create({
+		// 	article: modelAttributes,
+		// 	current_user_id: this.model.collection.current_user_id
+		// });
+	}
+
 });
 

@@ -16,24 +16,28 @@ class ArticlesController < ApplicationController
     	
     #### UPDATE DOES NOT WORK QUICK ENOUGH TO GET INTO @SAVED_ARTICLES ON FIRST LOAD	
 
-    @articles_with_user = @user.articles_with_user
+    # this method merges articles hash with a hash that stores user and current_user
+    @articles_with_users = @user.articles_with_user_and(current_user)
 
+    
     respond_to do |format|
 		  format.html # index.html.erb
-		  format.json { render json: @articles_with_user }
+		  format.json { render json: @articles_with_users }
     end
+  end
+
+  def create
+    binding.pry
   end
 
 
   def destroy
     user = User.find(params[:user_id])
     redirect_to sign_up_path and return unless current_user 
+    
     ###### TO DO ######
-      # THIS is creating a DELETE request to the desired path for some strange reason
-      # But there is no impact at the moment because the DELETE button has been removed when c_u != user
-      # Ok, the above is incorrect... We are only here b/c of ajax call, which can't be redirected
-      # which, as a request for data alone (json), can't be redirected to another html page
-      # Although the button has been deleted, think about keeping the below protection in here somehow
+      # Although the delete button has been removed for user != c_s, 
+      # sthink about keeping the below protection in here somehow
       # redirect_to user_articles_path(current_user) and return unless current_user == user
     
     article = Article.find(params[:id])
