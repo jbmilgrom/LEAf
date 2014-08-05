@@ -62,12 +62,15 @@ class ArticlesController < ApplicationController
     article = Article.find(params[:id])
     saved_article = SavedArticle.where(user_id: user.id, article_id: article.id).first
     post = Post.where({email: user.email, a_url: article.a_url}).first
+    
     # must also delete originating posts or update_articles will regenerate a SavedArticle
     # think about deleting posts the instance they are turned into an Article
     
     ##### TO DO #####
     # need to change the update_articles method so that it doesnt pull from all posts
     # this would allow us not to have to destroy posts
+    #################
+
     post.destroy if post
     saved_article.destroy
 
