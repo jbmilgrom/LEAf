@@ -1,4 +1,4 @@
-LEAf enables users to save digital content from any device.  Email the app from any devise with a url anywhere in the email.  LEAf recieves the email, recognizes the sender and parses the email for the url.  Next time the user visits his article page the app scrapes the article's webpage using the parsed url.
+LEAf enables users to save digital content from any device.  Email the app from any devise with a url placed anywhere in the email.  LEAf recieves the email, recognizes the sender and parses the email for the url.  Next time the user visits his article page the app scrapes the article's webpage using the parsed url.
 
 Thoughtbot's Griddler gem (in combination with SendGrid servers) is used to parse incoming email.  
 
