@@ -27,7 +27,21 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    binding.pry
+    # parent user in route (i.e. user/42/article) will be the user that
+    # is trying to create a SavedArticle in this method
+    # current_user should also be this user
+    # think about where to redirect as well as the notice message 
+    # in the case that current_user != user
+    user = User.find(params[:user_id])
+    article = Article.find(params[:article_id])
+
+    redirect_to sign_up_path and return unless current_user == user
+
+    saved_article = SavedArticle.create({article_id: article.id, user_id: user.id})
+
+    respond_to do |format|
+      format.json { render json: saved_article}
+    end
   end
 
 

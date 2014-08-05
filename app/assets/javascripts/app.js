@@ -1,10 +1,13 @@
-var App = App || { Models: {}, Collections: {}, Views: {}, Initializer: {} };
+var App = App || { Models: {}, Collections: {}, Views: {}, Initializer: {}, CurrentUser: {} };
 
 App.Initializer.Article = function(firstLoad, users){
 	var user_id = users.user_id;
 	var current_user_id = users.current_user_id;
 	var articleCollection = new App.Collections.ArticleCollection([], {user_id: user_id});
-	App.ExternalCollections.currentUserArticleCollection = new App.Collections.ArticleCollection([], {user_id: current_user_id});
+	
+	// creating an articleCollection for c_u without creating corresponding views
+	// doing this for save functionality w.r.t. followee articles
+	App.CurrentUser.articleCollection = new App.Collections.ArticleCollection([], {user_id: current_user_id});
 	
 	var collectionView = new App.Views.ArticleCollectionView({
 		collection: articleCollection,

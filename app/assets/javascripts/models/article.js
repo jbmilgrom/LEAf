@@ -1,4 +1,4 @@
-var App = App || { Models: {}, Collections: {}, Views: {}, Initializer: {} };
+var App = App || { Models: {}, Collections: {}, Views: {}, Initializer: {}, CurrentUser: {} };
 
 App.Models.Article = Backbone.Model.extend({
 	initialize: function(){
@@ -15,9 +15,5 @@ App.Models.Article = Backbone.Model.extend({
 		// } 
 		// this.set("currentUserArticleCollection", new App.Collections.ArticleCollection([], {users: users}));		
 
-	},
-
-	defaults: {
-		a_url: 'www.jonathan.com'
 	}
 });

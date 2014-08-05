@@ -1,4 +1,4 @@
-var App = App || { Models: {}, Collections: {}, Views: {}, Initializer: {} };
+var App = App || { Models: {}, Collections: {}, Views: {}, Initializer: {}, CurrentUser: {} };
 
 App.Views.ArticleCollectionView = Backbone.View.extend({
 	

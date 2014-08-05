@@ -1,4 +1,4 @@
-var App = App || { Models: {}, Collections: {}, Views: {}, Initializer: {} };
+var App = App || { Models: {}, Collections: {}, Views: {}, Initializer: {}, CurrentUser: {} };
 
 App.Collections.FolloweeCollection = Backbone.Collection.extend({
 	initialize: function(models, options){

@@ -1,4 +1,4 @@
-var App = App || { Models: {}, Collections: {}, Views: {}, Initializer: {} };
+var App = App || { Models: {}, Collections: {}, Views: {}, Initializer: {}, CurrentUser: {} };
 
 App.Views.ArticleView = Backbone.View.extend({
 	initialize: function(){
@@ -40,7 +40,11 @@ App.Views.ArticleView = Backbone.View.extend({
 	},	
 
 	saveArticle: function(){
+
 		
+		// current_user has already been linked to this articleCollection
+		// in Article Initializer
+		App.CurrentUser.articleCollection.create({article_id: this.model.attributes.id});
 		// var modelAttributes = this.model.attributes;
 		// delete modelAttributes.currentUserArticleCollection;
 		// debugger 
@@ -48,6 +52,7 @@ App.Views.ArticleView = Backbone.View.extend({
 		// 	article: modelAttributes,
 		// 	current_user_id: this.model.collection.current_user_id
 		// });
+		return this;
 	}
 
 });
