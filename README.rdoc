@@ -1,13 +1,27 @@
-LEAf enables users to save digital content from any device.  Email the app from any devise with a url anywhere in the email.  LEAf recieves the email, recognizes the sender and parses the email for the url.  Next time the user visits his article page the app scraps article's webpage using the parsed url.
+LEAf enables users to save digital content from any device.  Email the app from any devise with a url anywhere in the email.  LEAf recieves the email, recognizes the sender and parses the email for the url.  Next time the user visits his article page the app scrapes the article's webpage using the parsed url.
 
 Thoughtbot's Griddler gem (in combination with SendGrid servers) is used to parse incoming email.  
 
 
 Emails sent to /\w/@leafbeta.com are forwarded to SendGrid.  SendGrid parsing the email and send it to LEAf as the descript route:
 
-<a href="https://github.com/jbmilgrom/LEAf/blob/master/config/routes.rb">post '/email_processor' => 'griddler/emails#create'</a>
+post '/email_processor' => 'griddler/emails#create'  --  https://github.com/jbmilgrom/LEAf/blob/master/config/routes.rb
+
+Emails are directed to the EmailProcessor class -- https://github.com/jbmilgrom/LEAf/blob/master/app/classes/email_processor.rb
+
+url is parsed from the email with this expression
+url_array = [self.subject, self.raw_text, self.raw_body, self.raw_html].map { |raw_data| /(http:\/\/[\w._?=\-&\/]+)/.match(raw_data) }.compact
+-- https://github.com/jbmilgrom/LEAf/blob/master/app/models/post.rb
+
+When a user visits the user's articles page an instance of ArticleProcesser is created using the Pismo gem (which is built on top of Nokogiri)
+-- https://github.com/jbmilgrom/LEAf/blob/master/lib/classes/article_processor.rb
+
+A processed_article is created only if it hasn't been created before (see def any_new_users)
+-- https://github.com/jbmilgrom/LEAf/blob/master/app/models/user.rb
+
+In such a case, an article may be created (see def update_articles)
+-- https://github.com/jbmilgrom/LEAf/blob/master/app/models/user.rb
 
 
-
-
-A regex expression
+For a discussion of the follower/followee relationship in LEAf, please see my blog post:
+https://medium.com/@jbmilgrom/active-record-many-to-many-self-join-table-e0992c27c1e
