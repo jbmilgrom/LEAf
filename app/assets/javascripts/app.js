@@ -1,5 +1,5 @@
 var App = App || { Models: {}, Collections: {}, Views: {}, Initializer: {}, CurrentUser: {} };
-
+	
 App.Initializer.Article = function(firstLoad, users){
 	var user_id = users.user_id;
 	var current_user_id = users.current_user_id;
