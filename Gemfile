@@ -49,4 +49,4 @@ gem 'pismo'
 
 gem 'bootstrap'
 
-gem 'statsd'
+gem 'dogstatsd-ruby'

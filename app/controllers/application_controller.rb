@@ -1,8 +1,9 @@
 class ApplicationController < ActionController::Base
+  require 'statsd'
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  helper_method :current_user
+  helper_method :current_user, :statsd, :render_page
 
   private
 
@@ -13,5 +14,9 @@ class ApplicationController < ActionController::Base
   def current_user
     # The outer () w.r.t. the 'if' statement do not doing anything in ruby land (i.e. they are implied anyway). I've left them in for clarity.
     ( @current_user ||= User.find(session[:user_id]) ) if session[:user_id]
+  end
+
+  def statsd
+    Statsd.new
   end
 end

@@ -4,6 +4,9 @@ class ArticlesController < ApplicationController
 
     redirect_to sign_up_path and return unless current_user 
 
+    statsd.increment('web.page_views')
+
+
     @user = User.find(params[:user_id])
 
     if @user != current_user
