@@ -48,3 +48,5 @@ gem 'bcrypt'
 gem 'pismo'
 
 gem 'bootstrap'
+
+gem 'statsd'
