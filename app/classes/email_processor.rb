@@ -5,7 +5,7 @@ class EmailProcessor
   end
 
   def process
-  	post = Post.create!({ 
+    post = Post.create!({ 
       subject: @email.subject,
       body: @email.body, 
 
