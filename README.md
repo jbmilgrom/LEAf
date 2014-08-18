@@ -51,7 +51,6 @@ A parsing method looks for url and applies a regex to pull it out:
 [post.rb](http://github.com/jbmilgrom/LEAf/blob/master/app/models/post.rb)
   	
 	  def parse_url
-	  
 	    # the url seems to appear in at least one of the three attributes in the below array
 	    # map the attribute array to an array of all positive hits using regex expressing
 	    url_array = [self.subject, self.raw_text, self.raw_body, self.raw_html].map { |raw_data| /(http:\/\/[\w._?=\-&\/]+)/.match(raw_data) }.compact
