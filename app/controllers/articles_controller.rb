@@ -24,8 +24,8 @@ class ArticlesController < ApplicationController
 
     
     respond_to do |format|
-		  format.html # index.html.erb
-		  format.json { render json: @articles_with_users }
+      format.html # index.html.erb
+      format.json { render json: @articles_with_users }
     end
   end
 
