@@ -26,7 +26,6 @@ Which directs emails to:
 
   ```ruby
   class EmailProcessor
-
     def initialize(email)
       @email = email
     end
@@ -49,7 +48,6 @@ Which directs emails to:
       post.parse_url
       post.save
     end
-		
   end
   ```
 
@@ -120,7 +118,6 @@ class ArticleProcessor
       @doc_one.send(data_type, num) unless @doc_one.send(data_type, num) == "" #) || ( @doc_two.send(data_type, num) unless @doc_two.send(data_type, num) == "" )
     end
   end
-
 end
 ```
 
