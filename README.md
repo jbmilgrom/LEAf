@@ -15,39 +15,43 @@ Emails sent to /\w/@leafbeta.com are forwarded to SendGrid. SendGrid parses the 
 
 [routes.rb](http://github.com/jbmilgrom/LEAf/blob/master/config/routes.rb)
 
-	post '/email_processor' => 'griddler/emails#create' 
+```ruby
+post '/email_processor' => 'griddler/emails#create'
+```
 
 
 Which directs emails to:
  
 [app/classes/email_processor.rb](http://github.com/jbmilgrom/LEAf/blob/master/app/classes/email_processor.rb)
 
-	  class EmailProcessor
-	
-	    def initialize(email)
-	      @email = email
-	    end
-	
-	    def process
-	      post = Post.create!({ 
-	        subject: @email.subject,
-	        body: @email.body, 
-	        host: @email.from[:host],
-	        email: @email.from[:email],
-	        full: @email.from[:full],
-	        name: @email.from[:name],
-	        raw_text: @email.raw_text,
-	        raw_html: @email.raw_html,
-	        raw_body: @email.raw_body,
-	        attachments: @email.attachments[0]
-	      })
-	
-	      # save post after parsing @email for the correct article url
-	      post.parse_url
-	      post.save
-	    end
-			
-	  end
+  ```ruby
+  class EmailProcessor
+
+    def initialize(email)
+      @email = email
+    end
+
+    def process
+      post = Post.create!({ 
+        subject: @email.subject,
+        body: @email.body, 
+        host: @email.from[:host],
+        email: @email.from[:email],
+        full: @email.from[:full],
+        name: @email.from[:name],
+        raw_text: @email.raw_text,
+        raw_html: @email.raw_html,
+        raw_body: @email.raw_body,
+        attachments: @email.attachments[0]
+      })
+
+      # save post after parsing @email for the correct article url
+      post.parse_url
+      post.save
+    end
+		
+  end
+  ```
 
 A parsing method looks for url and applies a regex to pull it out: 
 
