@@ -3,7 +3,7 @@ LEAf
 
 LEAf enables users to save digital content from any device. Email the app from any devise with a url placed anywhere in the email. LEAf recieves the email, recognizes the sender and parses the email for the url. The next time the user visits the user's article page, the app scrapes the article's webpage associated with parsed url.
 
-Database Models & Associations: Posts are created from incoming emails. Articles are created from parsed Posts. A User is linked to an Article through SavedArticles (join table). Users can have many followeers and followees through a Follow (self join table). For a discussion of the follower/followee relationship in LEAf, please see
+DATABASE MODELS & ASSOCIATIONS: Posts are created from incoming emails. Articles are created from parsed Posts. A User is linked to an Article through SavedArticles (join table). Users can have many followeers and followees through a Follow (self join table). For a discussion of the follower/followee relationship in LEAf, please see
 [this blog post](http://medium.com/@jbmilgrom/active-record-many-to-many-self-join-table-e0992c27c1e).
 
 The Email Processor
