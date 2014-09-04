@@ -22,6 +22,7 @@ Which directs emails to:
  
 [app/classes/email_processor.rb](http://github.com/jbmilgrom/LEAf/blob/master/app/classes/email_processor.rb)
 
+	```ruby
 	  class EmailProcessor
 	
 	    def initialize(email)
@@ -48,6 +49,7 @@ Which directs emails to:
 	    end
 			
 	  end
+	  ```
 
 A parsing method looks for url and applies a regex to pull it out: 
 
