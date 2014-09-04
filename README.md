@@ -24,36 +24,6 @@ Which directs emails to:
  
 [app/classes/email_processor.rb](http://github.com/jbmilgrom/LEAf/blob/master/app/classes/email_processor.rb)
 
-<<<<<<< HEAD
-	```ruby
-	  class EmailProcessor
-	
-	    def initialize(email)
-	      @email = email
-	    end
-	
-	    def process
-	      post = Post.create!({ 
-	        subject: @email.subject,
-	        body: @email.body, 
-	        host: @email.from[:host],
-	        email: @email.from[:email],
-	        full: @email.from[:full],
-	        name: @email.from[:name],
-	        raw_text: @email.raw_text,
-	        raw_html: @email.raw_html,
-	        raw_body: @email.raw_body,
-	        attachments: @email.attachments[0]
-	      })
-	
-	      # save post after parsing @email for the correct article url
-	      post.parse_url
-	      post.save
-	    end
-			
-	  end
-	  ```
-=======
   ```ruby
   class EmailProcessor
     def initialize(email)
@@ -80,7 +50,6 @@ Which directs emails to:
     end
   end
   ```
->>>>>>> 5504c90c12637ef3e60feb68d76094ca64b51672
 
 A parsing method looks for url and applies a regex to pull it out: 
 
