@@ -170,6 +170,5 @@ def update_articles
   end
 end
 ```
-### Backbone.js
-========
+
 
