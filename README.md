@@ -3,7 +3,7 @@ LEAf
 
 LEAf enables users to save digital content from any device. Email the app from any devise with a url placed anywhere in the email. LEAf recieves the email, recognizes the sender and parses the email for the url. The next time the user visits the user's article page, the app scrapes the article's webpage associated with parsed url.
 
-**Go to [LEAf](http://http://leafbeta.herokuapp.com/), sign up with your email address, begin sending articles to save@leafbeta.com using the email address that you signed up with, and watch LEAf take care of the rest.**
+**Go to [LEAf](http://leafbeta.herokuapp.com/), sign up with your email address, begin sending articles to save@leafbeta.com using the email address that you signed up with, and watch LEAf take care of the rest.**
 
 ## Database Models and Associations
 
