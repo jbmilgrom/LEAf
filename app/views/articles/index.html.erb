@@ -4,6 +4,12 @@
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
     <div class="container article-stub" id="articles_list">
+      <% if @articles_with_users["articles"] == nil %>
+        <div class="col-xs-6 col-xs-offset-3">
+          <h3 style="color: #428bca"><strong>You may begin!</strong></h3> 
+          <h3 style="color: #428bca">Send articles to <strong>save@leafbeta.com</strong> using the email address you used to sign up for LEAf, reload this page and being viewing your saved articles</h3>
+        </div>
+      <% end %>
     </div>
 
       <!-- Three columns of text below the carousel -->

@@ -8,21 +8,17 @@ class ArticlesController < ApplicationController
     # render_page
 
     @user = User.find(params[:user_id])
-
     if @user != current_user
       redirect_to user_articles_path(current_user.id) and return unless current_user.a_follower?(@user)
     end
-      ####TODO### need to only call @user.update_articles if @user == current_user
-      
+      ####TODO### need to only call @user.update_articles if @user == current_user      
       
     @user.update_articles
-    	
     #### UPDATE DOES NOT WORK QUICK ENOUGH TO GET INTO @SAVED_ARTICLES ON FIRST LOAD	
 
     # this method merges articles hash with a hash that stores user and current_user
     @articles_with_users = @user.articles_with_user_and(current_user)
 
-    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @articles_with_users }
