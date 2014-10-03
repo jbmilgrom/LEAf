@@ -62,7 +62,7 @@ A parsing method looks for url and applies a regex to pull it out:
   def parse_url
     # the url appears in at least one of the four attributes in the below array
     # map the attribute array to an array of all positive hits using regex expression
-    url_array = [self.subject, self.raw_text, self.raw_body, self.raw_html].map { |raw_data| /(http:\/\/[\w._?=\-&\/]+)/.match(raw_data) }.compact
+    url_array = [subject, raw_text, raw_body, raw_html].map { |raw_data| /(http:\/\/[\w._?=\-&\/]+)/.match(raw_data) }.compact
 
     # select the first value of mapped array, which is the return result of the regex matching
     # since the regex mapping itself returns an array, select the first value thereof as well
