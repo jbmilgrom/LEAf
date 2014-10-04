@@ -62,7 +62,7 @@ A parsing method looks for url and applies a regex to pull it out:
   def parse_url
     # the url appears in at least one of the four attributes in the below array
     # map the attribute array to an array of all positive hits using regex expression
-    url_array = [subject, raw_text, raw_body, raw_html].map { |raw_data| /(http:\/\/[\w._?=\-&\/]+)/.match(raw_data) }.compact
+    url_array = [self.subject, self.raw_text, self.raw_body, self.raw_html].map { |raw_data| /(http:\/\/[\w._?=\-&\/]+)/.match(raw_data) }.compact
 
     # select the first value of mapped array, which is the return result of the regex matching
     # since the regex mapping itself returns an array, select the first value thereof as well
@@ -130,13 +130,13 @@ A processed_article is created only if it hasn't been created before:
 
 ```ruby
   def any_new_posts
-    posts = Post.where(email: email).to_a
+    posts = Post.where(email: self.email).to_a
     
     # delete all of the user's posts that have already been turned into Articles and linked to the User (through a SavedArticle)
     # note that if a User posts an article more than once (even months apart), such post will not be sent to  update_articles, and no additional SavedArticle will be created
     # in other words, may want to change the below to allow a user to email himself an article more than once
     # then again, doing so would not filter out accidental diplicate emails/posts
-    articles.each do |article|
+    self.articles.each do |article|
       posts.delete_if { |post| ( article.post_id == post.id ) || ( article.a_url == post.a_url ) }
     end
     return posts
