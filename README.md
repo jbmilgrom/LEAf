@@ -14,7 +14,7 @@ Posts are created from incoming emails. Articles are created from parsed Posts. 
 
 Thoughtbot's [Griddler gem](https://github.com/jbmilgrom/griddler) (in combination with SendGrid servers) is used to parse incoming email.
 
-Emails sent to /\w/@leafbeta.com are forwarded to [SendGrid](https://sendgrid.com/developer/reply). SendGrid parses the email and sends a POST request to LEAf at the following route:
+Emails sent to /\w/@leafbeta.com are forwarded to [SendGrid](https://sendgrid.com/developer/reply). SendGrid parses the email and sends a POST request to LEAf:
 
 [routes.rb](http://github.com/jbmilgrom/LEAf/blob/master/config/routes.rb)
 
