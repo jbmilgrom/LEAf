@@ -135,7 +135,7 @@ A processed_article is created only if it hasn't been created before:
     # delete all of the user's posts that have already been turned into Articles and linked to the User (through a SavedArticle)
     # note that if a User posts an article more than once (even months apart), such post will not be sent to  update_articles, and no additional SavedArticle will be created
     # in other words, may want to change the below to allow a user to email himself an article more than once
-    # then again, doing so would not filter out accidental diplicate emails/posts
+    # then again, doing so would not filter out accidental duplicate emails/posts
     self.articles.each do |article|
       posts.delete_if { |post| ( article.post_id == post.id ) || ( article.a_url == post.a_url ) }
     end
