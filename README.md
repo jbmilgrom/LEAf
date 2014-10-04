@@ -71,7 +71,7 @@ A parsing method looks for the url included in the email and applies a regex to 
 ```
  
 
-When a user visits the user's articles page, an instance of ArticleProcesser is created using the Pismo gem (which is built on top of Nokogiri):
+When a user visits the user's articles page, the web page associate with the parsed url is scraped for the contents of the article using the Pismo gem (which is built on top of Nokogiri), an action which is embodied by an instance of ArticleProcessor:
 
 [lib/classes/article_processor.rb](http://github.com/jbmilgrom/LEAf/blob/master/lib/classes/article_processor.rb)
 
