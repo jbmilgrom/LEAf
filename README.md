@@ -54,7 +54,7 @@ Which directs emails to:
   end
   ```
 
-A parsing method looks for the url included in the email and applies a regex to pull it out: 
+Posts are created from incoming emails. An instance method of Post parses the contents of the email for the url, applying a regex to pull it out: 
 
 [post.rb](http://github.com/jbmilgrom/LEAf/blob/master/app/models/post.rb)
   	
@@ -124,7 +124,7 @@ class ArticleProcessor
 end
 ```
 
-A processed_article is created only if it hasn't been created before: 
+However, this expensive method is only triggerd if it is associated with a new unproccessed Post (note, in later iterations, this will likely be handled through an additional data-field in the Post model set to a boolean value that tracks the state: processed || unprocessed, so as to avoid expensive database calls every time a new Post needs processing): 
 
 [user.rb](http://github.com/jbmilgrom/LEAf/blob/master/app/models/user.rb)
 
@@ -169,4 +169,20 @@ def update_articles
 end
 ```
 
+`Article.create_article(user_post)` creates an instance of ArticleProcessor (which performs the web-scraping as shown above):
 
+[article.rb](https://github.com/jbmilgrom/LEAf/blob/master/app/models/article.rb)
+
+```ruby
+def self.create_article(post)       
+  article = ArticleProcessor.new(post.a_url)
+  Article.create({
+    a_url: post.a_url,
+    header: article.title,
+    subheader: article.sentences(5),
+    body: article.body,
+    post_id: post.id,
+    received?: article.received?
+  })
+end
+```
