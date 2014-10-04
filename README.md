@@ -54,7 +54,7 @@ Which directs emails to:
   end
   ```
 
-A parsing method looks for url and applies a regex to pull it out: 
+A parsing method looks for the url included in the email and applies a regex to pull it out: 
 
 [post.rb](http://github.com/jbmilgrom/LEAf/blob/master/app/models/post.rb)
   	
