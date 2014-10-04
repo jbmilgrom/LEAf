@@ -130,13 +130,13 @@ A processed_article is created only if it hasn't been created before:
 
 ```ruby
   def any_new_posts
-    posts = Post.where(email: self.email).to_a
+    posts = Post.where(email: email).to_a
     
     # delete all of the user's posts that have already been turned into Articles and linked to the User (through a SavedArticle)
     # note that if a User posts an article more than once (even months apart), such post will not be sent to  update_articles, and no additional SavedArticle will be created
     # in other words, may want to change the below to allow a user to email himself an article more than once
     # then again, doing so would not filter out accidental diplicate emails/posts
-    self.articles.each do |article|
+    articles.each do |article|
       posts.delete_if { |post| ( article.post_id == post.id ) || ( article.a_url == post.a_url ) }
     end
     return posts
@@ -149,7 +149,7 @@ In such a case, an article may be created:
 
 ```ruby
 def update_articles
-  new_user_posts = self.any_new_posts
+  new_user_posts = any_new_posts
   unless new_user_posts[0] == nil
     new_user_posts.each do |user_post|
       
